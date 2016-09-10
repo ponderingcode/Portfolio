@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0813160B-E140-4B02-95E4-06628A8D54B9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portfolio</RootNamespace>
+    <AssemblyName>Portfolio</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Theme\Highland_v2.0.0\404.html" />
+    <Content Include="Theme\Highland_v2.0.0\about-us.html" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\css\bootstrap.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\js\bootstrap.js" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\js\npm.js" />
+    <Content Include="Theme\Highland_v2.0.0\assets\css\styles.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\css\styles_blue.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\css\styles_brown.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\css\styles_green.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\css\styles_orange.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\favicon\favicon.ico" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\arrow_left.svg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\arrow_right.svg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\blog_1.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\blog_2.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\blog_3.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\home_1.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\home_2.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\home_3.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\page.svg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\person_1.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\person_2.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\person_3.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\person_4.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\sos.png" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\welcome.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\work_1.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\work_2.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\work_2_big.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\work_3.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\work_3_big.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\work_4.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\work_4_big.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\js\custom.js" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\contact-form\contact.js" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\css\font-awesome.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\isotope\imagesloaded.pkgd.min.js" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\isotope\isotope.pkgd.min.js" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\css\lightbox.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\images\close.png" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\images\loading.gif" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\images\next.png" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\images\prev.png" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\js\lightbox-plus-jquery.js" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\js\lightbox-plus-jquery.min.js" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\js\lightbox.js" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\js\lightbox.min.js" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\scrolltopcontrol\scrolltopcontrol.js" />
+    <Content Include="Theme\Highland_v2.0.0\blog-post.html" />
+    <Content Include="Theme\Highland_v2.0.0\blog-timeline.html" />
+    <Content Include="Theme\Highland_v2.0.0\blog.html" />
+    <Content Include="Theme\Highland_v2.0.0\contact.html" />
+    <Content Include="Theme\Highland_v2.0.0\edit-profile.html" />
+    <Content Include="Theme\Highland_v2.0.0\faq.html" />
+    <Content Include="Theme\Highland_v2.0.0\gallery-bubbles.html" />
+    <Content Include="Theme\Highland_v2.0.0\gallery-item.html" />
+    <Content Include="Theme\Highland_v2.0.0\gallery-text.html" />
+    <Content Include="Theme\Highland_v2.0.0\inbox-dialog.html" />
+    <Content Include="Theme\Highland_v2.0.0\inbox.html" />
+    <Content Include="Theme\Highland_v2.0.0\index.html" />
+    <Content Include="Theme\Highland_v2.0.0\pricing.html" />
+    <Content Include="Theme\Highland_v2.0.0\profile.html" />
+    <Content Include="Theme\Highland_v2.0.0\README.html" />
+    <Content Include="Theme\Highland_v2.0.0\sign-in.html" />
+    <Content Include="Theme\Highland_v2.0.0\sign-up.html" />
+    <Content Include="Theme\Highland_v2.0.0\team.html" />
+    <Content Include="Theme\Highland_v2.0.0\template.html" />
+    <Content Include="Theme\Highland_v2.0.0\ui-elements.html" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\.csscomb.json" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\.csslintrc" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\alerts.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\badges.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\bootstrap.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\breadcrumbs.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\button-groups.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\buttons.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\carousel.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\close.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\code.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\component-animations.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\dropdowns.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\forms.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\glyphicons.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\grid.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\input-groups.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\jumbotron.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\labels.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\list-group.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\media.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\alerts.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\buttons.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\center-block.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\forms.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\gradients.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\grid.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\image.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\labels.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\list-group.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\opacity.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\pagination.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\panels.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\reset-text.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\resize.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\size.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\table-row.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\modals.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\navbar.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\navs.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\normalize.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\pager.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\pagination.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\panels.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\popovers.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\print.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\progress-bars.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\responsive-embed.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\responsive-utilities.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\scaffolding.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\tables.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\theme.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\thumbnails.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\tooltip.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\type.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\utilities.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\variables.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\less\wells.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\alerts.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\animations.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\buttons.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\carousel.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\colors.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\comments.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\dropdowns.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\footer.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\forms.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\info-boards.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\list-group.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\modals.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\navbar.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\navs.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\page-topbar.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\pagination.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\panels.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\progress-bars.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\scrolltopcontrol.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\social-icons.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\thumbnails.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\type.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\typography.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\utilities.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\wells.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\elements\_setup.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\pages\about-us.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\pages\blog.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\pages\contact.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\pages\error-page.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\pages\faq.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\pages\gallery.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\pages\index.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\pages\pricing.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\pages\profile.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\pages\team.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\pages\ui-elements.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\less\styles.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\animated.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\core.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\fixed-width.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\font-awesome.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\icons.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\larger.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\list.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\mixins.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\path.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\stacked.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\less\variables.less" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_animated.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_core.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_icons.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_larger.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_list.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_mixins.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_path.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_stacked.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\font-awesome\scss\_variables.scss" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\js\lightbox-plus-jquery.min.map" />
+    <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\js\lightbox.min.map" />
+    <Content Include="Theme\Highland_v2.0.0\config.php" />
+    <Content Include="Theme\Highland_v2.0.0\sendmail.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>9477</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9477/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
