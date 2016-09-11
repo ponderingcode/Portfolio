@@ -273,6 +273,7 @@
     <Content Include="Theme\Highland_v2.0.0\inbox-dialog.html" />
     <Content Include="Theme\Highland_v2.0.0\inbox.html" />
     <Content Include="Theme\Highland_v2.0.0\index.html" />
+    <Content Include="Theme\Highland_v2.0.0\PartialViews\showcase.html" />
     <Content Include="Theme\Highland_v2.0.0\PartialViews\recent-works.html" />
     <Content Include="Theme\Highland_v2.0.0\PartialViews\services.html" />
     <Content Include="Theme\Highland_v2.0.0\PartialViews\welcome-message.html" />
@@ -473,6 +474,8 @@
     <Content Include="Theme\Highland_v2.0.0\sendmail.php" />
     <Content Include="Views\Home\IndexScaffolded.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\LoginScaffolded.cshtml" />
+    <Content Include="Views\Shared\_LayoutScaffolded.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
