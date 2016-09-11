@@ -273,6 +273,9 @@
     <Content Include="Theme\Highland_v2.0.0\inbox-dialog.html" />
     <Content Include="Theme\Highland_v2.0.0\inbox.html" />
     <Content Include="Theme\Highland_v2.0.0\index.html" />
+    <Content Include="Theme\Highland_v2.0.0\PartialViews\recent-works.html" />
+    <Content Include="Theme\Highland_v2.0.0\PartialViews\services.html" />
+    <Content Include="Theme\Highland_v2.0.0\PartialViews\welcome-message.html" />
     <Content Include="Theme\Highland_v2.0.0\pricing.html" />
     <Content Include="Theme\Highland_v2.0.0\profile.html" />
     <Content Include="Theme\Highland_v2.0.0\README.html" />
