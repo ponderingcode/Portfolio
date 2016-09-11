@@ -215,6 +215,7 @@
     <Content Include="Theme\Highland_v2.0.0\assets\css\styles_brown.css" />
     <Content Include="Theme\Highland_v2.0.0\assets\css\styles_green.css" />
     <Content Include="Theme\Highland_v2.0.0\assets\css\styles_orange.css" />
+    <Content Include="Theme\Highland_v2.0.0\assets\favicon\favicon-windows.ico" />
     <Content Include="Theme\Highland_v2.0.0\assets\favicon\favicon.ico" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\arrow_left.svg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\arrow_right.svg" />
@@ -224,12 +225,16 @@
     <Content Include="Theme\Highland_v2.0.0\assets\img\home_1.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\home_2.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\home_3.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\home_4.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\page.svg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\person_1.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\person_2.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\person_3.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\person_4.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\sos.png" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\stock_photos\home_1.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\stock_photos\home_2.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\stock_photos\home_3.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\welcome.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\work_1.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\work_2.jpg" />
@@ -286,7 +291,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -464,6 +468,8 @@
     <Content Include="Theme\Highland_v2.0.0\assets\plugins\lightbox\js\lightbox.min.map" />
     <Content Include="Theme\Highland_v2.0.0\config.php" />
     <Content Include="Theme\Highland_v2.0.0\sendmail.php" />
+    <Content Include="Views\Home\IndexScaffolded.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
