@@ -18,7 +18,8 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -198,6 +199,8 @@
     <Content Include="JavascriptExercises\prism\prism.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\rfleming-portfolio - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\rfleming-portfolio - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -486,6 +489,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Account\LoginScaffolded.cshtml" />
     <Content Include="Views\Shared\_LayoutScaffolded.cshtml" />
+    <Content Include="Views\Shared\_LoginPartialScaffolded.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -8700,3 +8700,11 @@ body
     background: lightgrey;
     flex:1;
 }
+
+.application-name {
+    font-family: Consolas, monaco, monospace;
+	font-size: 18px;
+	font-style: normal;
+    padding-bottom:25px; 
+    line-height:16px;
+}
