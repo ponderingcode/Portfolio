@@ -21,4 +21,9 @@ namespace Portfolio
         public const string BLOG_POSTS = "BlogPosts";
         public const string HOME = "Home";
     }
+
+    public class PartialViewName
+    {
+        public const string LOGIN_PARTIAL = "_LoginPartial";
+    }
 }

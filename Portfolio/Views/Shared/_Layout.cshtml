@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand application-name" href="@Url.Action(ActionName.INDEX, ControllerName.HOME)"><span style="color:#4EC9B0">RyanFleming</span>.PORTFOLIO</a>
+                <a class="navbar-brand application-name" href="@Url.Action(ActionName.INDEX, ControllerName.HOME)"><span style="color:#4EC9B0;">RyanFleming</span>.PORTFOLIO</a>
 
             </div>
 
@@ -55,23 +55,7 @@
                     <li><a href="javascript:void(0);" style="pointer-events:none; color:gray">Blog</a></li>
                     <li><a href="javascript:void(0);" style="pointer-events:none; color:gray">Contact</a></li>
                 </ul>
-                @Html.Partial("_LoginPartial")
-                @*<ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @if (ViewBag.IsAuthenticated)
-                        {
-                            <a href="@Url.Action(ActionName.LOGIN, ControllerName.ACCOUNT)"><i class="fa fa-lock"></i> <span class="hidden-md">Sign In</span></a>
-                        }
-                        else
-                        {
-                            <a href="@Url.Action(ActionName.LOGOFF, ControllerName.ACCOUNT)"><i class="fa fa-lock"></i> <span class="hidden-md">Sign Out</span></a>
-                        }
-                    </li>
-                    <li>
-                        <a href="sign-up.html"><i class="fa fa-user"></i> <span class="hidden-md">Sign Up</span></a>
-                    </li>
-                </ul>*@
-
+                @Html.Partial(PartialViewName.LOGIN_PARTIAL)
                 <form class="navbar-form navbar-search navbar-right">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="&#xF002; &nbsp; Search">
