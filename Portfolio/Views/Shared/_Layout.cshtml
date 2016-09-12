@@ -26,7 +26,7 @@
     <!-- NAVIGATION
     ================================================== -->
     <!-- Navbar -->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
 
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="index.html">Ryan Fleming</a>
+                <a class="navbar-brand" href="@Url.Action(ActionName.INDEX, ControllerName.HOME)">Ryan Fleming</a>
 
             </div>
 
@@ -47,55 +47,26 @@
             <div class="collapse navbar-collapse" id="navbar_main">
 
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="edit-profile.html">Edit Profile</a></li>
-                            <li><a href="inbox.html">Inbox</a></li>
-                            <li><a href="inbox-dialog.html">Inbox: Dialog</a></li>
-                            <li><a href="sign-in.html">Sign In</a></li>
-                            <li><a href="sign-up.html">Sign Up</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="blog-timeline.html">Blog: Timeline</a></li>
-                            <li><a href="blog-post.html">Blog Post</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallery <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="gallery-text.html">Gallery: Text blocks</a></li>
-                            <li><a href="gallery-bubbles.html">Gallery: Bubbles</a></li>
-                            <li><a href="gallery-item.html">Gallery Item</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More Pages <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="404.html">Error 404</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="team.html">Our Team</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="ui-elements.html">UI elements</a></li>
+                    <li><a href="@Url.Action(ActionName.INDEX, ControllerName.HOME)">Home</a></li>
+                    <li><a href="@Url.Action(ActionName.ABOUT, ControllerName.HOME)">About</a></li>
+                    <li><a href="@Url.Action(ActionName.INDEX, ControllerName.BLOG_POSTS)">Blog</a></li>
+                    <li><a href="@Url.Action(ActionName.CONTACT, ControllerName.HOME)">Contact</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="sign-in.html"><i class="fa fa-lock"></i> <span class="hidden-md">Sign In</span></a>
+                        @if (ViewBag.IsAuthenticated)
+                        {
+                            <a href="@Url.Action(ActionName.LOGIN, ControllerName.ACCOUNT)"><i class="fa fa-lock"></i> <span class="hidden-md">Sign In</span></a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action(ActionName.LOGOFF, ControllerName.ACCOUNT)"><i class="fa fa-lock"></i> <span class="hidden-md">Sign Out</span></a>
+                        }
                     </li>
-                    <li>
+                    @*<li>
                         <a href="sign-up.html"><i class="fa fa-user"></i> <span class="hidden-md">Sign Up</span></a>
-                    </li>
+                    </li>*@
                 </ul>
 
                 <form class="navbar-form navbar-search navbar-right">
@@ -116,7 +87,7 @@
     
     <!-- FOOTER
     ================================================== -->
-    <footer style="margin:0px; padding:0px; height:55px;">
+    <footer class="navbar navbar-default navbar-fixed-bottom" style="margin:0px; padding:0px; height:55px; bottom:0px;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6" style="height:55px; padding-top:20px;">

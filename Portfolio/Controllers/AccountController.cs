@@ -13,6 +13,7 @@ using Portfolio.Models;
 namespace Portfolio.Controllers
 {
     [Authorize]
+    [UserActionFilter]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
