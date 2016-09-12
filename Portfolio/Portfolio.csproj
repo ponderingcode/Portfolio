@@ -188,6 +188,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="JavascriptExercises\exercise1.png" />
+    <Content Include="JavascriptExercises\exercise2.png" />
+    <Content Include="JavascriptExercises\exercise3.png" />
+    <Content Include="JavascriptExercises\exercise4.png" />
+    <Content Include="JavascriptExercises\exercises.css" />
+    <Content Include="JavascriptExercises\exercises.js" />
+    <Content Include="JavascriptExercises\prism\prism.css" />
+    <Content Include="JavascriptExercises\prism\prism.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
