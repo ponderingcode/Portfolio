@@ -1,0 +1,102 @@
+﻿<div class="modal fade in" id="e3_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" style="width:1200px; height:900px;">
+        <div class="modal-content" style="width:1200px; height:900px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalLabel">Two-Value FizzBuzz</h4>
+            </div>
+            <div class="modal-body no-left-right-padding">
+                <div class="col-md-5">
+                    <form id="form" class="form-horizontal no-padding-no-margin">
+                        <fieldset class="no-padding-no-margin">
+                            <!-- Button -->
+                            <div class="form-group">
+                                <div class="col-md-10 col-centered no-padding-no-margin">
+                                    <button id="e3_btnSubmit" name="e3_btnSubmit" class="btn btn-primary" onclick="e3_onSubmit()">Start</button>
+                                    <button id="e3_btnReset" name="e3_btnReset" class="btn btn-danger" onclick="e3_onReset()">Reset</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10 col-centered no-padding-no-margin">
+                                    <span id="e3_output" class="vscroll"></span>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col-md-7">
+                    <div class="col-md-11 col-centered">
+<pre class="line-numbers" style="height: 800px;">
+<code class="language-javascript">const WHITESPACE = "\u00A0";
+    
+function e3_onSubmit() {
+    event.preventDefault();
+    var e3_val0 = promptForValue();
+    var e3_val1 = promptForValue(false, true);
+    e3_main(e3_val0, e3_val1);
+}
+function e3_main(val0, val1) {
+    while (1 >= val0 || 100 <= val0 || isNaN(val0)) {
+        val0 = promptForValue(true);
+    }
+    
+    while (1 >= val1 || 100 <= val1 || isNaN(val1)) {
+        val1 = promptForValue(true, true);
+    }
+    
+    var e3_strVal;
+    var modFizz;
+    var modBuzz;
+    var strFizz = "Fizz";
+    var strBuzz = "Buzz";
+    
+    for (i=1; i < 100; i++) {
+        e3_strVal = "";
+        modFizz = (0 == i % val0 ? true : false);
+        modBuzz = (0 == i % val1 ? true : false);
+        
+        if (!modFizz && !modBuzz) {
+            e3_strVal += i;
+        }
+        else {
+            if (modFizz) {
+                e3_strVal += strFizz;
+            }
+            if (modBuzz) {
+                e3_strVal += strBuzz;
+            }
+        }
+        $('#e3_output').append($("li").text(i + '.)' + spaceMaker(i) + e3_strVal));
+        $('#e3_output').append($("li").text('\u00A0'));
+    }
+}
+function spaceMaker(i) {
+    
+    if (99 < i) {
+        return WHITESPACE;
+    } else if (9 < i) {
+        return WHITESPACE+WHITESPACE+WHITESPACE;
+    } else {
+        return WHITESPACE+WHITESPACE+WHITESPACE+WHITESPACE+WHITESPACE;
+    }
+}
+function promptForValue(doScoldUser=false, promptForSecondValue=false) {
+    var strInstructions = promptForSecondValue ? "Enter a second numeric value between 1 & 100." : "Enter a numeric value between 1 & 100.";
+    var strScold = "YOU FAILED TO FOLLOW INSTRUCTIONS. PLEASE TRY AGAIN."
+    var strMessage = doScoldUser ? strScold + " " + strInstructions : strInstructions;
+    return parseInt(prompt(strMessage));
+}
+function e3_onReset() {
+    event.preventDefault();
+    $('#e3_output').text('');
+}
+</code>
+</pre>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿<div class="modal fade in" id="e4_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalLabel">Palindrome</h4>
+            </div>
+            <div class="modal-body no-left-right-padding">
+                <form id="form" class="form-horizontal no-padding-no-margin">
+                    <fieldset class="no-padding-no-margin">
+                        <div class="form-group">
+                            <div class="col-md-10 col-centered no-padding-no-margin">
+                                <input id="e4_inp0" name="e4_inp0" type="text" placeholder="enter a word" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="form-group">
+                            <div class="col-md-10 col-centered no-padding-no-margin">
+                                <button id="e4_btnSubmit" name="e4_btnSubmit" class="btn btn-primary" onclick="e4_onSubmit()">Submit</button>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10 col-centered no-padding-no-margin">
+                                <span id="e4_output" class="output">&nbsp;</span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <div class="col-md-11 col-centered">
+<pre class="line-numbers">
+<code class="language-javascript">var e4_arrStr = [];
+var e4_arrStrReverse = [];
+var e4_val0;
+var e4_reverse = "";
+function onSubmit() {
+    event.preventDefault();
+    e4_val0 = $('#e4_inp0').val();
+    
+    for (var i = 0; i < e4_val0.length; i++) {
+        e4_arrStr.push(e4_val0.charAt(i));
+    }
+    
+    e4_arrStrReverse = e4_arrStr.reverse();
+    
+    for (var i = 0; i < e4_arrStrReverse.length; i++)
+    {
+        e4_reverse += e4_arrStrReverse[i];        
+    }
+    
+    (e4_val0.toUpperCase() === e4_reverse.toUpperCase()) ? $('#e4_output').text('The word "' + e4_val0 + '" is a palindrome.') : $('#e4_output').text('The word "' + e4_val0 + '" is not a palindrome.');
+}
+</code>
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

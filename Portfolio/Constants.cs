@@ -24,6 +24,10 @@ namespace Portfolio
 
     public class PartialViewName
     {
+        public const string JAVASCRIPT_EXERCISE_1 = "_JavaScriptExercise1";
+        public const string JAVASCRIPT_EXERCISE_2 = "_JavaScriptExercise2";
+        public const string JAVASCRIPT_EXERCISE_3 = "_JavaScriptExercise3";
+        public const string JAVASCRIPT_EXERCISE_4 = "_JavaScriptExercise4";
         public const string LOGIN_PARTIAL = "_LoginPartial";
     }
 }

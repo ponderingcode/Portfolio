@@ -18,8 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort>44372</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -490,9 +489,14 @@
     <Content Include="Views\Account\LoginScaffolded.cshtml" />
     <Content Include="Views\Shared\_LayoutScaffolded.cshtml" />
     <Content Include="Views\Shared\_LoginPartialScaffolded.cshtml" />
+    <Content Include="Views\Shared\_JavaScriptExercise1.cshtml" />
+    <Content Include="Views\Shared\_JavaScriptExercise2.cshtml" />
+    <Content Include="Views\Shared\_JavaScriptExercise3.cshtml" />
+    <Content Include="Views\Shared\_JavaScriptExercise4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Components\ViewStack\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

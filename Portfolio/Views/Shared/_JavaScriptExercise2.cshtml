@@ -1,0 +1,52 @@
+﻿<div class="modal fade in" id="e2_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:560px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalLabel">Factorial</h4>
+            </div>
+            <div class="modal-body no-left-right-padding">
+                <form id="form" class="form-horizontal no-padding-no-margin">
+                    <fieldset class="no-padding-no-margin">
+                        <div class="form-group">
+                            <div class="col-md-10 col-centered no-padding-no-margin">
+                                <input id="e2_inp0" name="e2_inp0" type="number" placeholder="enter a number" class="form-control input-md span3" style="width:100%;" required="" min="0">
+                            </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="form-group">
+                            <div class="col-md-10 col-centered no-padding-no-margin">
+                                <button id="e2_btnSubmit" name="e2_btnSubmit" class="btn btn-primary" onclick="e2_onSubmit()">Submit</button>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10 col-centered no-padding-no-margin">
+                                <span id="e2_output" class="output"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <div class="col-md-11 col-centered">
+<pre class="line-numbers">
+<code class="language-javascript">function e2_onSubmit() {
+    event.preventDefault();
+    
+    var e2_val0 = parseInt($('#e2_inp0').val());
+    var factorial = e2_val0;
+    
+    for (i = 1; i < e2_val0; i++) {
+        factorial *= i;
+    }
+    
+    var e2_msg = e2_val0 + ' factorial is ' + factorial;
+    $('#e2_inp0').val('');
+    $('#e2_output').text(e2_msg);
+}
+</code>
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
