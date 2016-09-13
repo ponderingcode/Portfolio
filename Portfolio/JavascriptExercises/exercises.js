@@ -133,17 +133,17 @@ function e1_onReset() {
 }
 
 /********** BEGIN exercise-02 code **********/
-function e2_onSubmit() {
-    event.preventDefault();
-    var e2_val0 = parseInt($('#e2_inp0').val());
-    var factorial = e2_val0;
-    for (i = 1; i < e2_val0; i++) {
-        factorial *= i;
-    }
-    var e2_msg = e2_val0 + ' factorial is ' + factorial;
-    $('#e2_inp0').val('');
-    $('#e2_output').text(e2_msg);
-}
+//function e2_onSubmit() {
+//    event.preventDefault();
+//    var e2_val0 = parseInt($('#e2_inp0').val());
+//    var factorial = e2_val0;
+//    for (i = 1; i < e2_val0; i++) {
+//        factorial *= i;
+//    }
+//    var e2_msg = e2_val0 + ' factorial is ' + factorial;
+//    $('#e2_inp0').val('');
+//    $('#e2_output').text(e2_msg);
+//}
 /********** END exercise-02 code **********/
 
 /********** BEGIN exercise-03 code **********/
