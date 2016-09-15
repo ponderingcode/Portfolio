@@ -214,33 +214,33 @@ function e3_onReset() {
 /********** END exercise-03 code **********/
 
 /********** BEGIN exercise-04 code **********/
-var e4_arrStr = [];
-var e4_arrStrReverse = [];
-var e4_val0 = "";
-var e4_reverse = "";
+//var e4_arrStr = [];
+//var e4_arrStrReverse = [];
+//var e4_val0 = "";
+//var e4_reverse = "";
 
-function e4_onSubmit() {
-    event.preventDefault();
-    e4_val0 = $('#e4_inp0').val();
-    for (var i = 0; i < e4_val0.length; i++) {
-        e4_arrStr.push(e4_val0.charAt(i));
-    }
-    e4_arrStrReverse = e4_arrStr.reverse();
+//function e4_onSubmit() {
+//    event.preventDefault();
+//    e4_val0 = $('#e4_inp0').val();
+//    for (var i = 0; i < e4_val0.length; i++) {
+//        e4_arrStr.push(e4_val0.charAt(i));
+//    }
+//    e4_arrStrReverse = e4_arrStr.reverse();
     
-    for (var i = 0; i < e4_arrStrReverse.length; i++)
-    {
-        e4_reverse += e4_arrStrReverse[i];        
-    }
+//    for (var i = 0; i < e4_arrStrReverse.length; i++)
+//    {
+//        e4_reverse += e4_arrStrReverse[i];        
+//    }
     
-    (e4_val0.toUpperCase() === e4_reverse.toUpperCase()) ? $('#e4_output').text('The word "' + e4_val0 + '" is a palindrome.') : $('#e4_output').text('The word "' + e4_val0 + '" is not a palindrome.');
-    e4_onReset();
-}
+//    (e4_val0.toUpperCase() === e4_reverse.toUpperCase()) ? $('#e4_output').text('The word "' + e4_val0 + '" is a palindrome.') : $('#e4_output').text('The word "' + e4_val0 + '" is not a palindrome.');
+//    e4_onReset();
+//}
 
-function e4_onReset() {
-    $('#e4_inp0').val('');
-    e4_arrStr = [];
-    e4_arrStrReverse = [];
-    e4_val0 = "";
-    e4_reverse = "";
-}
+//function e4_onReset() {
+//    $('#e4_inp0').val('');
+//    e4_arrStr = [];
+//    e4_arrStrReverse = [];
+//    e4_val0 = "";
+//    e4_reverse = "";
+//}
 /********** END exercise-04 code **********/
