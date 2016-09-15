@@ -4481,7 +4481,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-color: #313131;
 }
 .navbar-default .navbar-brand {
-  color: #e9e9e9;
+  /*color: #e9e9e9;*/
+  /*color: rgba(255,255,255,.2);*/
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -8685,7 +8686,7 @@ html, body
 {
     height: 110%;
 }
-body
+body, body.modal-open
 {
     display: flex;
     flex-direction: column;
@@ -8701,10 +8702,27 @@ body
     flex:1;
 }
 
+
+/*body.modal-open, 
+.modal-open .navbar-fixed-top, 
+.modal-open .navbar-fixed-bottom 
+{
+    margin-right: 0px;
+padding-right: 17px;
+}
+
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+padding-right: 17px;
+}*/
+
+@font-face {
+    font-family: Unsteady Oversteer;
+    src: url('../../../../fonts/unsteady oversteer.ttf');
+}
+
 .application-name {
-    font-family: Consolas, monaco, monospace;
-	font-size: 18px;
-	font-style: normal;
-    padding-bottom:25px; 
-    line-height:16px;
+    font-family: 'Unsteady Oversteer';
+    font-size: 28px;
+    color: lawngreen;
 }

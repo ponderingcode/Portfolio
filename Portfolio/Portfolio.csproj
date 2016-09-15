@@ -198,6 +198,7 @@
     <Content Include="JavascriptExercises\prism\prism.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\unsteady oversteer.ttf" />
     <None Include="Properties\PublishProfiles\rfleming-portfolio - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\rfleming-portfolio - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
