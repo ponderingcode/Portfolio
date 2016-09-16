@@ -3,7 +3,7 @@ const OPERATION_TYPE_GREATEST = 'operationTypeGreatest';
 const OPERATION_TYPE_MEAN = 'operationTypeMean';
 const OPERATION_TYPE_SUM = 'operationTypeSum';
 const OPERATION_TYPE_PRODUCT = 'operationTypeProduct';
-const WHITESPACE = '\u00A0';
+//const WHITESPACE = '\u00A0';
 const EMPTY_STRING = '';
 
 var operationType;
@@ -147,70 +147,70 @@ function e1_onReset() {
 /********** END exercise-02 code **********/
 
 /********** BEGIN exercise-03 code **********/
-function e3_onSubmit() {
-    event.preventDefault();
-    var e3_val0 = promptForValue();
-    var e3_val1 = promptForValue(false, true);
-    e3_main(e3_val0, e3_val1);
-}
+//function e3_onSubmit() {
+//    event.preventDefault();
+//    var e3_val0 = promptForValue();
+//    var e3_val1 = promptForValue(false, true);
+//    e3_main(e3_val0, e3_val1);
+//}
 
-function e3_main(val0, val1) {
-    while (1 >= val0 || 100 <= val0 || isNaN(val0)) {
-        val0 = promptForValue(true);
-    }
+//function e3_main(val0, val1) {
+//    while (1 >= val0 || 100 <= val0 || isNaN(val0)) {
+//        val0 = promptForValue(true);
+//    }
 
-    while (1 >= val1 || 100 <= val1 || isNaN(val1)) {
-        val1 = promptForValue(true, true);
-    }
+//    while (1 >= val1 || 100 <= val1 || isNaN(val1)) {
+//        val1 = promptForValue(true, true);
+//    }
 
-    var e3_strVal;
-    var modFizz;
-    var modBuzz;
-    var strFizz = "Fizz";
-    var strBuzz = "Buzz";
+//    var e3_strVal;
+//    var modFizz;
+//    var modBuzz;
+//    var strFizz = "Fizz";
+//    var strBuzz = "Buzz";
 
-    for (i=1; i < 100; i++) {
-        e3_strVal = "";
-        modFizz = (0 == i % val0 ? true : false);
-        modBuzz = (0 == i % val1 ? true : false);
+//    for (i=1; i < 100; i++) {
+//        e3_strVal = "";
+//        modFizz = (0 == i % val0 ? true : false);
+//        modBuzz = (0 == i % val1 ? true : false);
 
-        if (!modFizz && !modBuzz) {
-            e3_strVal += i;
-        }
-        else {
-            if (modFizz) {
-                e3_strVal += strFizz;
-            }
-            if (modBuzz) {
-                e3_strVal += strBuzz;
-            }
-        }
-        $('#e3_output').append($("<li>").text(i + '.)' + spaceMaker(i) + e3_strVal));
-        $('#e3_output').append($("<li>").text(WHITESPACE));
-    }
-}
+//        if (!modFizz && !modBuzz) {
+//            e3_strVal += i;
+//        }
+//        else {
+//            if (modFizz) {
+//                e3_strVal += strFizz;
+//            }
+//            if (modBuzz) {
+//                e3_strVal += strBuzz;
+//            }
+//        }
+//        $('#e3_output').append($("<li>").text(i + '.)' + spaceMaker(i) + e3_strVal));
+//        $('#e3_output').append($("<li>").text(WHITESPACE));
+//    }
+//}
 
-function spaceMaker(i) {
-    if (99 < i) {
-        return WHITESPACE;
-    } else if (9 < i) {
-        return WHITESPACE+WHITESPACE+WHITESPACE;
-    } else {
-        return WHITESPACE+WHITESPACE+WHITESPACE+WHITESPACE+WHITESPACE;
-    }
-}
+//function spaceMaker(i) {
+//    if (99 < i) {
+//        return WHITESPACE;
+//    } else if (9 < i) {
+//        return WHITESPACE+WHITESPACE+WHITESPACE;
+//    } else {
+//        return WHITESPACE+WHITESPACE+WHITESPACE+WHITESPACE+WHITESPACE;
+//    }
+//}
 
-function promptForValue(doScoldUser=false, promptForSecondValue=false) {
-    var strInstructions = promptForSecondValue ? "Enter a second numeric value between 1 & 100." : "Enter a numeric value between 1 & 100.";
-    var strScold = "YOU FAILED TO FOLLOW INSTRUCTIONS. PLEASE TRY AGAIN."
-    var strMessage = doScoldUser ? strScold + " " + strInstructions : strInstructions;
-    return parseInt(prompt(strMessage));
-}
+//function promptForValue(doScoldUser=false, promptForSecondValue=false) {
+//    var strInstructions = promptForSecondValue ? "Enter a second numeric value between 1 & 100." : "Enter a numeric value between 1 & 100.";
+//    var strScold = "YOU FAILED TO FOLLOW INSTRUCTIONS. PLEASE TRY AGAIN."
+//    var strMessage = doScoldUser ? strScold + " " + strInstructions : strInstructions;
+//    return parseInt(prompt(strMessage));
+//}
 
-function e3_onReset() {
-    event.preventDefault();
-    $('#e3_output').text('');
-}
+//function e3_onReset() {
+//    event.preventDefault();
+//    $('#e3_output').text('');
+//}
 /********** END exercise-03 code **********/
 
 /********** BEGIN exercise-04 code **********/

@@ -1,60 +1,157 @@
-﻿<div class="modal fade in" id="e3_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" style="width:1200px; height:900px;">
-        <div class="modal-content" style="width:1200px; height:900px;">
+﻿<div id="e3_modal" class="modal" tabindex="-1" aria-hidden="true">
+    <script type="text/javascript">
+        const WHITESPACE = '\u00A0';
+        var e3_inp0ValueIsValid = false;
+        var e3_inp1ValueIsValid = false;
+
+        function e3_onChanged()
+        {
+            switch (event.target) {
+                case e3_inp0:
+                    e3_inp0ValueIsValid = 0 < parseInt(e3_inp0.value) && 100 > parseInt(e3_inp0.value);
+                    break;
+                case e3_inp1:
+                    e3_inp1ValueIsValid = 0 < parseInt(e3_inp1.value) && 100 > parseInt(e3_inp1.value);
+                    break;
+                default:
+                    e3_inp0ValueIsValid = false;
+                    e3_inp1ValueIsValid = false;
+            }
+
+            e3_btnStart.disabled = !e3_inp0ValueIsValid || !e3_inp1ValueIsValid;
+        }
+
+        function e3_onStart() {
+            event.preventDefault();
+            var e3_val0 = null;
+            var e3_val1 = null;
+            e3_val0 = $('#e3_inp0').val();
+            e3_val1 = $('#e3_inp1').val();
+            e3_main(e3_val0, e3_val1);
+        }
+
+        function e3_main(val0, val1) {
+            $('#e3_output').text('');
+            var e3_strVal;
+            var modFizz;
+            var modBuzz;
+            var strFizz = "Fizz";
+            var strBuzz = "Buzz";
+
+            for (i=1; i < 100; i++) {
+                e3_strVal = "";
+                modFizz = (0 == i % val0 ? true : false);
+                modBuzz = (0 == i % val1 ? true : false);
+
+                if (!modFizz && !modBuzz) {
+                    e3_strVal += i;
+                }
+                else {
+                    if (modFizz) {
+                        e3_strVal += strFizz;
+                    }
+                    if (modBuzz) {
+                        e3_strVal += strBuzz;
+                    }
+                }
+                $('#e3_output').append($("<li>").text(i + '.)' + spaceMaker(i) + e3_strVal));
+                $('#e3_output').append($("<li>").text(WHITESPACE));
+            }
+        }
+
+        function spaceMaker(i) {
+            if (99 < i) {
+                return WHITESPACE;
+            } else if (9 < i) {
+                return WHITESPACE+WHITESPACE+WHITESPACE;
+            } else {
+                return WHITESPACE+WHITESPACE+WHITESPACE+WHITESPACE+WHITESPACE;
+            }
+        }
+
+        function e3_onReset() {
+            event.preventDefault();
+            $('#e3_inp0').val('');
+            $('#e3_inp1').val('');
+            e3_inp0ValueIsValid = false;
+            e3_inp1ValueIsValid = false;
+            e3_btnStart.disabled = true;
+            $('#e3_output').text('');
+        }
+    </script>
+    <div class="modal-dialog">
+        <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="e3_onReset()"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="modalLabel">Two-Value FizzBuzz</h4>
             </div>
-            <div class="modal-body no-left-right-padding">
-                <div class="col-md-5">
-                    <form id="form" class="form-horizontal no-padding-no-margin">
-                        <fieldset class="no-padding-no-margin">
-                            <!-- Button -->
-                            <div class="form-group">
-                                <div class="col-md-10 col-centered no-padding-no-margin">
-                                    <button id="e3_btnSubmit" name="e3_btnSubmit" class="btn btn-primary" onclick="e3_onSubmit()">Start</button>
-                                    <button id="e3_btnReset" name="e3_btnReset" class="btn btn-danger" onclick="e3_onReset()">Reset</button>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-10 col-centered no-padding-no-margin">
-                                    <span id="e3_output" class="vscroll"></span>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
+            <div class="modal-body">
+                <div class="row">
+                    <div id="col0" class="col-md-4">
+                        <p>
+                            <input id="e3_inp0" name="e3_inp0" class="col-md-4 form-control" type="number" placeholder="0 < number < 100" pattern="\d*" required="" min="0" max="100" onkeyup="e3_onChanged()">
+                        </p>
+                    </div>
+                    <div id="col1" class="col-md-4">
+                        <p>
+                            <input id="e3_inp1" name="e3_inp1" class="col-md-4 form-control" type="number" placeholder="0 < number < 100" pattern="\d*" required="" min="0" max="100" onkeyup="e3_onChanged()">
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>
+                            <button id="e3_btnStart" name="e3_btnSubmit" class="btn btn-primary clickable" onclick="e3_onStart()" disabled>Start</button>
+                            <button id="e3_btnReset" name="e3_btnReset" class="btn btn-danger clickable" onclick="e3_onReset()">Reset</button>
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-7">
-                    <div class="col-md-11 col-centered">
-<pre class="line-numbers" style="height: 800px;">
-<code class="language-javascript">const WHITESPACE = "\u00A0";
-    
-function e3_onSubmit() {
+                <div class="row">
+                    <div class="col-md-12 col-centered" style="overflow: scroll; height: 150px; padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:0px;">
+                        <span id="e3_output"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-centered">
+<pre class="line-numbers">
+<code class="language-javascript" style="overflow: scroll; height: 200px;">const WHITESPACE = '\u00A0';
+var e3_inp0ValueIsValid = false;
+var e3_inp1ValueIsValid = false;
+
+function e3_onChanged()
+{
+    switch (event.target) {
+        case e3_inp0:
+            e3_inp0ValueIsValid = 0 < parseInt(e3_inp0.value) && 100 > parseInt(e3_inp0.value);
+            break;
+        case e3_inp1:
+            e3_inp1ValueIsValid = 0 < parseInt(e3_inp1.value) && 100 > parseInt(e3_inp1.value);
+            break;
+        default:
+            e3_inp0ValueIsValid = false;
+            e3_inp1ValueIsValid = false;
+    }
+    e3_btnStart.disabled = !e3_inp0ValueIsValid || !e3_inp1ValueIsValid;
+}
+
+function e3_onStart() {
     event.preventDefault();
-    var e3_val0 = promptForValue();
-    var e3_val1 = promptForValue(false, true);
+    var e3_val0 = null;
+    var e3_val1 = null;
+    e3_val0 = $('#e3_inp0').val();
+    e3_val1 = $('#e3_inp1').val();
     e3_main(e3_val0, e3_val1);
 }
+
 function e3_main(val0, val1) {
-    while (1 >= val0 || 100 <= val0 || isNaN(val0)) {
-        val0 = promptForValue(true);
-    }
-    
-    while (1 >= val1 || 100 <= val1 || isNaN(val1)) {
-        val1 = promptForValue(true, true);
-    }
-    
+    $('#e3_output').text('');
     var e3_strVal;
     var modFizz;
     var modBuzz;
     var strFizz = "Fizz";
     var strBuzz = "Buzz";
-    
     for (i=1; i < 100; i++) {
         e3_strVal = "";
         modFizz = (0 == i % val0 ? true : false);
         modBuzz = (0 == i % val1 ? true : false);
-        
         if (!modFizz && !modBuzz) {
             e3_strVal += i;
         }
@@ -66,12 +163,12 @@ function e3_main(val0, val1) {
                 e3_strVal += strBuzz;
             }
         }
-        $('#e3_output').append($("li").text(i + '.)' + spaceMaker(i) + e3_strVal));
-        $('#e3_output').append($("li").text('\u00A0'));
+        $('#e3_output').append($("&lt;li&gt;").text(i + '.)' + spaceMaker(i) + e3_strVal));
+        $('#e3_output').append($("&lt;li&gt;").text(WHITESPACE));
     }
 }
+
 function spaceMaker(i) {
-    
     if (99 < i) {
         return WHITESPACE;
     } else if (9 < i) {
@@ -80,22 +177,20 @@ function spaceMaker(i) {
         return WHITESPACE+WHITESPACE+WHITESPACE+WHITESPACE+WHITESPACE;
     }
 }
-function promptForValue(doScoldUser=false, promptForSecondValue=false) {
-    var strInstructions = promptForSecondValue ? "Enter a second numeric value between 1 & 100." : "Enter a numeric value between 1 & 100.";
-    var strScold = "YOU FAILED TO FOLLOW INSTRUCTIONS. PLEASE TRY AGAIN."
-    var strMessage = doScoldUser ? strScold + " " + strInstructions : strInstructions;
-    return parseInt(prompt(strMessage));
-}
+
 function e3_onReset() {
     event.preventDefault();
-    $('#e3_output').text('');
+        $('#e3_inp0').val('');
+        $('#e3_inp1').val('');
+        e3_inp0ValueIsValid = false;
+        e3_inp1ValueIsValid = false;
+        e3_btnStart.disabled = true;
+        $('#e3_output').text('');
 }
 </code>
 </pre>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
