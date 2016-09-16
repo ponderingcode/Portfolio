@@ -1,115 +1,228 @@
-﻿<div class="modal fade in modal-xl" id="e1_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog col-centered" style="width:925px;">
+﻿<div id="e1_modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <script type="text/javascript">
+        const OPERATION_TYPE_LEAST = 'operationTypeLeast';
+        const OPERATION_TYPE_GREATEST = 'operationTypeGreatest';
+        const OPERATION_TYPE_MEAN = 'operationTypeMean';
+        const OPERATION_TYPE_SUM = 'operationTypeSum';
+        const OPERATION_TYPE_PRODUCT = 'operationTypeProduct';
+        const EMPTY_STRING = '';
+
+        var operationType;
+
+        var e1_val0 = NaN;
+        var e1_val1 = NaN;
+        var e1_val2 = NaN;
+        var e1_val3 = NaN;
+        var e1_val4 = NaN;
+        var e1_arrValues = [];
+
+        var least;
+        var greatest;
+        var mean;
+        var sum;
+        var product;
+
+        function e1_onSubmit() {
+            event.preventDefault();
+            grabEntries();
+            mathSwitch();
+        }
+
+        function grabEntries() {
+            e1_arrValues = [];
+            var temp = [];
+            temp.push(parseInt($('#e1_inp0').val()));
+            temp.push(parseInt($('#e1_inp1').val()));
+            temp.push(parseInt($('#e1_inp2').val()));
+            temp.push(parseInt($('#e1_inp3').val()));
+            temp.push(parseInt($('#e1_inp4').val()));
+
+            for (var i = 0; i < temp.length; i++) {
+                if (!isNaN(temp[i])) {
+                    e1_arrValues.push(temp[i]);
+                }
+            }
+        }
+
+        function didUserProvideValues() {
+            return (null != e1_val0 && EMPTY_STRING != e1_val0 &&
+                    null != e1_val1 && EMPTY_STRING != e1_val1 &&
+                    null != e1_val2 && EMPTY_STRING != e1_val2 &&
+                    null != e1_val3 && EMPTY_STRING != e1_val3 &&
+                    null != e1_val4 && EMPTY_STRING != e1_val4);
+        }
+
+        function didUserRunProgram() {
+            var e1_outputMessage = $('#e1_output').text();
+            return EMPTY_STRING != e1_outputMessage;
+        }
+
+        /* generate a new result for different type of operation
+           only if the user has entered value and a result exists */
+        function onSelectChanged() {
+            if (didUserProvideValues() && didUserRunProgram()) {
+                mathSwitch();
+            }
+        }
+
+        function sortNumericAscending(a, b) {
+            return a - b;
+        }
+
+        function sortNumericDescending(a, b) {
+            return b - a;
+        }
+
+        function mathSwitch() {
+            operationType = $('#selectOperation').val();
+            switch (operationType) {
+                case OPERATION_TYPE_LEAST:
+                    determineLeast();
+                    break;
+                case OPERATION_TYPE_GREATEST:
+                    determineGreatest();
+                    break;
+                case OPERATION_TYPE_MEAN:
+                    determineMean();
+                    break;
+                case OPERATION_TYPE_SUM:
+                    determineSum();
+                    break;
+                case OPERATION_TYPE_PRODUCT:
+                    determineProduct();
+                    break;
+            }
+        }
+
+        function determineLeast() {
+            e1_arrValues.sort(sortNumericAscending);
+            least = e1_arrValues[0];
+            $('#e1_output').text('Least: ' + least);
+        }
+
+        function determineGreatest() {
+            e1_arrValues.sort(sortNumericDescending);
+            greatest = e1_arrValues[0];
+            $('#e1_output').text('Greatest: ' + greatest);
+        }
+
+        function determineMean() {
+            mean = 0;
+            for (var i = 0; i < e1_arrValues.length; i++) {
+                mean += e1_arrValues[i];
+            }
+            mean /= e1_arrValues.length;
+            $('#e1_output').text('Mean: ' + mean);
+        }
+
+        function determineSum() {
+            sum = 0;
+            for (var i = 0; i < e1_arrValues.length; i++) {
+                sum += e1_arrValues[i];
+            }
+            $('#e1_output').text('Sum: ' + sum);
+        }
+
+        function determineProduct() {
+            product = 1;
+            for (var i = 0; i < e1_arrValues.length; i++) {
+                product *= e1_arrValues[i];
+            }
+            $('#e1_output').text('Product: ' + product);
+        }
+
+        function e1_onReset() {
+            $('#selectOperation option').prop('selected', function () {
+                return this.defaultSelected;
+            });
+            $('#e1_inp0').val(EMPTY_STRING);
+            $('#e1_inp1').val(EMPTY_STRING);
+            $('#e1_inp2').val(EMPTY_STRING);
+            $('#e1_inp3').val(EMPTY_STRING);
+            $('#e1_inp4').val(EMPTY_STRING);
+            $('#e1_output').text(EMPTY_STRING);
+        }
+    </script>
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="modalLabel">Least, Greatest, Mean, Sum, &amp; Product</h4>
             </div>
-            <div class="modal-body no-left-right-padding">
+            <div class="modal-body">
                 <div class="row">
-                    <!-- BEGIN left half of modal -->
-                    <div class="col-md-4">
-                        <form id="form" class="form-horizontal no-padding-no-margin">
-                            <fieldset class="no-padding-no-margin">
-                                <!-- selectOperation -->
-                                <div class="form-group">
-                                    <div class="col-md-10 col-centered no-padding-no-margin">
-                                        <select id="selectOperation" name="selectOperation" class="form-control" onchange="onSelectChanged()">
-                                            <option value="operationTypeLeast">Least</option>
-                                            <option value="operationTypeGreatest">Greatest</option>
-                                            <option value="operationTypeMean">Mean</option>
-                                            <option value="operationTypeSum">Sum</option>
-                                            <option value="operationTypeProduct">Product</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <!-- inp0 -->
-                                <div class="form-group">
-                                    <div class="col-md-10 col-centered no-padding-no-margin">
-                                        <input id="e1_inp0" name="e1_inp0" type="number" placeholder="number 1 of 5" class="form-control input-md" required="">
-                                    </div>
-                                </div>
-
-                                <!-- inp1 -->
-                                <div class="form-group">
-                                    <div class="col-md-10 col-centered no-padding-no-margin">
-                                        <input id="e1_inp1" name="e1_inp1" type="number" placeholder="number 2 of 5" class="form-control input-md" required="">
-                                    </div>
-                                </div>
-
-                                <!-- inp2 -->
-                                <div class="form-group">
-                                    <div class="col-md-10 col-centered no-padding-no-margin">
-                                        <input id="e1_inp2" name="e1_inp2" type="number" placeholder="number 3 of 5" class="form-control input-md" required="">
-                                    </div>
-                                </div>
-
-                                <!-- inp3 -->
-                                <div class="form-group">
-                                    <div class="col-md-10 col-centered no-padding-no-margin">
-                                        <input id="e1_inp3" name="e1_inp3" type="number" placeholder="number 4 of 5" class="form-control input-md" required="">
-                                    </div>
-                                </div>
-
-                                <!-- inp4 -->
-                                <div class="form-group">
-                                    <div class="col-md-10 col-centered no-padding-no-margin">
-                                        <input id="e1_inp4" name="e1_inp4" type="number" placeholder="number 5 of 5" class="form-control input-md" required="">
-                                    </div>
-                                </div>
-
-                                <!-- btnSubmit -->
-                                <div class="form-group">
-                                    <div class="col-md-10 col-centered no-padding-no-margin">
-                                        <button id="e1_btnSubmit" name="e1_btnSubmit" class="btn btn-primary" onclick="e1_onSubmit()">Submit</button>
-                                        <button id="e1_btnReset" name="e1_btnReset" class="btn btn-danger" onclick="e1_onReset()">Reset</button>
-                                    </div>
-                                </div>
-
-                                <!-- output -->
-                                <div class="form-group">
-                                    <div class="col-md-10 col-centered no-padding-no-margin">
-                                        <span id="e1_output" class="output"></span>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                        <!-- END left half of modal -->
+                    <div class="col-md-12 col-centered">
+                        <p>
+                            <select id="selectOperation" name="selectOperation" class="form-control" onchange="onSelectChanged()" >
+                                <option value="operationTypeLeast" defaultSelected="true">Least</option>
+                                <option value="operationTypeGreatest">Greatest</option>
+                                <option value="operationTypeMean">Mean</option>
+                                <option value="operationTypeSum">Sum</option>
+                                <option value="operationTypeProduct">Product</option>
+                            </select>
+                        </p>
                     </div>
-
-                    <!-- BEGIN right half of modal -->
-                    <!-- Pardon the messy look of this section -->
-                    <!-- the indentation (or lack thereof) is necesssary -->
-                    <!-- for syntax highlighting to display correctly -->
-                    <div class="col-md-8">
-                        <!-- Prism syntax highlighting -->
-                        <div class="col-md-11 col-centered">
-<pre class="line-numbers" style="width:550px; height:350px;">
-<code class="language-javascript">const OPERATION_TYPE_LEAST = 'operationTypeLeast';
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-centered">
+                        <p>
+                            <input id="e1_inp0" name="e1_inp0" type="number" placeholder="number 1 of 5" class="form-control input-md" required="">
+                        </p>
+                        <p>
+                            <input id="e1_inp1" name="e1_inp1" type="number" placeholder="number 2 of 5" class="form-control input-md" required="">
+                        </p>
+                        <p>
+                            <input id="e1_inp2" name="e1_inp2" type="number" placeholder="number 3 of 5" class="form-control input-md" required="">
+                        </p>
+                        <p>
+                            <input id="e1_inp3" name="e1_inp3" type="number" placeholder="number 4 of 5" class="form-control input-md" required="">
+                        </p>
+                        <p>
+                            <input id="e1_inp4" name="e1_inp4" type="number" placeholder="number 5 of 5" class="form-control input-md" required="">
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button id="e1_btnSubmit" name="e1_btnSubmit" class="btn btn-primary" onclick="e1_onSubmit()">Submit</button>
+                        <button id="e1_btnReset" name="e1_btnReset" class="btn btn-danger" onclick="e1_onReset()">Reset</button>
+                    </div>
+                    <div class="col-md-6" style="height:33px; padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:0px;">
+                        <h5 id="e1_output" style="display:inline-block;"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-centered">
+<pre class="line-numbers">
+<code class="language-javascript" style="overflow: scroll; height: 200px;">const OPERATION_TYPE_LEAST = 'operationTypeLeast';
 const OPERATION_TYPE_GREATEST = 'operationTypeGreatest';
 const OPERATION_TYPE_MEAN = 'operationTypeMean';
 const OPERATION_TYPE_SUM = 'operationTypeSum';
 const OPERATION_TYPE_PRODUCT = 'operationTypeProduct';
 const EMPTY_STRING = '';
+
 var operationType;
+
 var e1_val0 = EMPTY_STRING;
 var e1_val1 = EMPTY_STRING;
 var e1_val2 = EMPTY_STRING;
 var e1_val3 = EMPTY_STRING;
 var e1_val4 = EMPTY_STRING;
 var e1_arrValues = [];
+
 var least;
 var greatest;
 var mean;
 var sum;
 var product;
+
 function e1_onSubmit() {
     event.preventDefault();
     grabEntries();
     e1_arrValues = [e1_val0, e1_val1, e1_val2, e1_val3, e1_val4];
     mathSwitch();
 }
+
 function grabEntries() {
     e1_val0 = parseInt($('#e1_inp0').val());
     e1_val1 = parseInt($('#e1_inp1').val());
@@ -117,6 +230,7 @@ function grabEntries() {
     e1_val3 = parseInt($('#e1_inp3').val());
     e1_val4 = parseInt($('#e1_inp4').val());
 }
+
 function didUserProvideValues() {
     return (null != e1_val0 && EMPTY_STRING != e1_val0 && 
             null != e1_val1 && EMPTY_STRING != e1_val1 &&
@@ -124,10 +238,12 @@ function didUserProvideValues() {
             null != e1_val3 && EMPTY_STRING != e1_val3 &&
             null != e1_val4 && EMPTY_STRING != e1_val4);
 }
+
 function didUserRunProgram() {
     var e1_outputMessage = $('#e1_output').text();
     return EMPTY_STRING != e1_outputMessage;
 }
+
 /* generate a new result for different type of operation
    only if the user has entered value and a result exists */
 function onSelectChanged() {
@@ -135,12 +251,15 @@ function onSelectChanged() {
         mathSwitch();
     }
 }
+
 function sortNumericAscending(a, b) {
     return a - b;
 }
+
 function sortNumericDescending(a, b) {
     return b - a;
 }
+
 function mathSwitch() {
     operationType = $('#selectOperation').val();
     switch(operationType) {
@@ -161,16 +280,19 @@ function mathSwitch() {
             break;
     }
 }
+
 function determineLeast() {
     e1_arrValues.sort(sortNumericAscending);
     least = e1_arrValues[0];
     $('#e1_output').text('Least: ' + least);
 }
+
 function determineGreatest() {
     e1_arrValues.sort(sortNumericDescending);
     greatest = e1_arrValues[0];
     $('#e1_output').text('Greatest: ' + greatest);
 }
+
 function determineMean() {
     mean = 0;
     for (var i=0; i < e1_arrValues.length; i++) {
@@ -179,6 +301,7 @@ function determineMean() {
     mean /= e1_arrValues.length;
     $('#e1_output').text('Mean: ' + mean);
 }
+
 function determineSum() {
     sum = 0;
     for (var i=0; i < e1_arrValues.length; i++) {
@@ -186,6 +309,7 @@ function determineSum() {
     }
     $('#e1_output').text('Sum: ' + sum);
 }
+
 function determineProduct() {
     product = 1;
     for (var i=0; i < e1_arrValues.length; i++) {
@@ -193,6 +317,7 @@ function determineProduct() {
     }
     $('#e1_output').text('Product: ' + product);
 }
+
 function e1_onReset() {
     $('#e1_inp0').val(EMPTY_STRING);
     $('#e1_inp1').val(EMPTY_STRING);
@@ -203,7 +328,6 @@ function e1_onReset() {
 }
 </code>
 </pre>
-                        </div>
                     </div>
                 </div>
             </div>

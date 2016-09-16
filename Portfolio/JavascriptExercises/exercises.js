@@ -1,136 +1,136 @@
-const OPERATION_TYPE_LEAST = 'operationTypeLeast';
-const OPERATION_TYPE_GREATEST = 'operationTypeGreatest';
-const OPERATION_TYPE_MEAN = 'operationTypeMean';
-const OPERATION_TYPE_SUM = 'operationTypeSum';
-const OPERATION_TYPE_PRODUCT = 'operationTypeProduct';
-//const WHITESPACE = '\u00A0';
-const EMPTY_STRING = '';
+//const OPERATION_TYPE_LEAST = 'operationTypeLeast';
+//const OPERATION_TYPE_GREATEST = 'operationTypeGreatest';
+//const OPERATION_TYPE_MEAN = 'operationTypeMean';
+//const OPERATION_TYPE_SUM = 'operationTypeSum';
+//const OPERATION_TYPE_PRODUCT = 'operationTypeProduct';
+////const WHITESPACE = '\u00A0';
+//const EMPTY_STRING = '';
 
-var operationType;
+//var operationType;
 
-var e1_val0 = EMPTY_STRING;
-var e1_val1 = EMPTY_STRING;
-var e1_val2 = EMPTY_STRING;
-var e1_val3 = EMPTY_STRING;
-var e1_val4 = EMPTY_STRING;
-var e1_arrValues = [];
+//var e1_val0 = EMPTY_STRING;
+//var e1_val1 = EMPTY_STRING;
+//var e1_val2 = EMPTY_STRING;
+//var e1_val3 = EMPTY_STRING;
+//var e1_val4 = EMPTY_STRING;
+//var e1_arrValues = [];
 
-var least;
-var greatest;
-var mean;
-var sum;
-var product;
+//var least;
+//var greatest;
+//var mean;
+//var sum;
+//var product;
 
-function e1_onSubmit() {
-    event.preventDefault();
-    grabEntries();
-    e1_arrValues = [e1_val0, e1_val1, e1_val2, e1_val3, e1_val4];
-    mathSwitch();
-}
+//function e1_onSubmit() {
+//    event.preventDefault();
+//    grabEntries();
+//    e1_arrValues = [e1_val0, e1_val1, e1_val2, e1_val3, e1_val4];
+//    mathSwitch();
+//}
 
-function grabEntries() {
-    e1_val0 = parseInt($('#e1_inp0').val());
-    e1_val1 = parseInt($('#e1_inp1').val());
-    e1_val2 = parseInt($('#e1_inp2').val());
-    e1_val3 = parseInt($('#e1_inp3').val());
-    e1_val4 = parseInt($('#e1_inp4').val());
-}
+//function grabEntries() {
+//    e1_val0 = parseInt($('#e1_inp0').val());
+//    e1_val1 = parseInt($('#e1_inp1').val());
+//    e1_val2 = parseInt($('#e1_inp2').val());
+//    e1_val3 = parseInt($('#e1_inp3').val());
+//    e1_val4 = parseInt($('#e1_inp4').val());
+//}
 
-function didUserProvideValues() {
-    return (null != e1_val0 && EMPTY_STRING != e1_val0 && 
-            null != e1_val1 && EMPTY_STRING != e1_val1 &&
-            null != e1_val2 && EMPTY_STRING != e1_val2 &&
-            null != e1_val3 && EMPTY_STRING != e1_val3 &&
-            null != e1_val4 && EMPTY_STRING != e1_val4);
-}
+//function didUserProvideValues() {
+//    return (null != e1_val0 && EMPTY_STRING != e1_val0 && 
+//            null != e1_val1 && EMPTY_STRING != e1_val1 &&
+//            null != e1_val2 && EMPTY_STRING != e1_val2 &&
+//            null != e1_val3 && EMPTY_STRING != e1_val3 &&
+//            null != e1_val4 && EMPTY_STRING != e1_val4);
+//}
 
-function didUserRunProgram() {
-    var e1_outputMessage = $('#e1_output').text();
-    return EMPTY_STRING != e1_outputMessage;
-}
+//function didUserRunProgram() {
+//    var e1_outputMessage = $('#e1_output').text();
+//    return EMPTY_STRING != e1_outputMessage;
+//}
 
-/* generate a new result for different type of operation
-   only if the user has entered value and a result exists */
-function onSelectChanged() {
-    if (didUserProvideValues() && didUserRunProgram()) {
-        mathSwitch();
-    }
-}
+///* generate a new result for different type of operation
+//   only if the user has entered value and a result exists */
+//function onSelectChanged() {
+//    if (didUserProvideValues() && didUserRunProgram()) {
+//        mathSwitch();
+//    }
+//}
 
-function sortNumericAscending(a, b) {
-    return a - b;
-}
+//function sortNumericAscending(a, b) {
+//    return a - b;
+//}
 
-function sortNumericDescending(a, b) {
-    return b - a;
-}
+//function sortNumericDescending(a, b) {
+//    return b - a;
+//}
 
-function mathSwitch() {
-    operationType = $('#selectOperation').val();
-    switch(operationType) {
-        case OPERATION_TYPE_LEAST:
-            determineLeast();
-            break;
-        case OPERATION_TYPE_GREATEST:
-            determineGreatest();
-            break;
-        case OPERATION_TYPE_MEAN:
-            determineMean();
-            break;
-        case OPERATION_TYPE_SUM:
-            determineSum();
-            break;
-        case OPERATION_TYPE_PRODUCT:
-            determineProduct();
-            break;
-    }
-}
+//function mathSwitch() {
+//    operationType = $('#selectOperation').val();
+//    switch(operationType) {
+//        case OPERATION_TYPE_LEAST:
+//            determineLeast();
+//            break;
+//        case OPERATION_TYPE_GREATEST:
+//            determineGreatest();
+//            break;
+//        case OPERATION_TYPE_MEAN:
+//            determineMean();
+//            break;
+//        case OPERATION_TYPE_SUM:
+//            determineSum();
+//            break;
+//        case OPERATION_TYPE_PRODUCT:
+//            determineProduct();
+//            break;
+//    }
+//}
 
-function determineLeast() {
-    e1_arrValues.sort(sortNumericAscending);
-    least = e1_arrValues[0];
-    $('#e1_output').text('Least: ' + least);
-}
+//function determineLeast() {
+//    e1_arrValues.sort(sortNumericAscending);
+//    least = e1_arrValues[0];
+//    $('#e1_output').text('Least: ' + least);
+//}
 
-function determineGreatest() {
-    e1_arrValues.sort(sortNumericDescending);
-    greatest = e1_arrValues[0];
-    $('#e1_output').text('Greatest: ' + greatest);
-}
+//function determineGreatest() {
+//    e1_arrValues.sort(sortNumericDescending);
+//    greatest = e1_arrValues[0];
+//    $('#e1_output').text('Greatest: ' + greatest);
+//}
 
-function determineMean() {
-    mean = 0;
-    for (var i=0; i < e1_arrValues.length; i++) {
-        mean += e1_arrValues[i];
-    }
-    mean /= e1_arrValues.length;
-    $('#e1_output').text('Mean: ' + mean);
-}
+//function determineMean() {
+//    mean = 0;
+//    for (var i=0; i < e1_arrValues.length; i++) {
+//        mean += e1_arrValues[i];
+//    }
+//    mean /= e1_arrValues.length;
+//    $('#e1_output').text('Mean: ' + mean);
+//}
 
-function determineSum() {
-    sum = 0;
-    for (var i=0; i < e1_arrValues.length; i++) {
-        sum += e1_arrValues[i];
-    }
-    $('#e1_output').text('Sum: ' + sum);
-}
+//function determineSum() {
+//    sum = 0;
+//    for (var i=0; i < e1_arrValues.length; i++) {
+//        sum += e1_arrValues[i];
+//    }
+//    $('#e1_output').text('Sum: ' + sum);
+//}
 
-function determineProduct() {
-    product = 1;
-    for (var i=0; i < e1_arrValues.length; i++) {
-        product *= e1_arrValues[i];
-    }
-    $('#e1_output').text('Product: ' + product);
-}
+//function determineProduct() {
+//    product = 1;
+//    for (var i=0; i < e1_arrValues.length; i++) {
+//        product *= e1_arrValues[i];
+//    }
+//    $('#e1_output').text('Product: ' + product);
+//}
 
-function e1_onReset() {
-    $('#e1_inp0').val(EMPTY_STRING);
-    $('#e1_inp1').val(EMPTY_STRING);
-    $('#e1_inp2').val(EMPTY_STRING);
-    $('#e1_inp3').val(EMPTY_STRING);
-    $('#e1_inp4').val(EMPTY_STRING);
-    $('#e1_output').text(EMPTY_STRING);
-}
+//function e1_onReset() {
+//    $('#e1_inp0').val(EMPTY_STRING);
+//    $('#e1_inp1').val(EMPTY_STRING);
+//    $('#e1_inp2').val(EMPTY_STRING);
+//    $('#e1_inp3').val(EMPTY_STRING);
+//    $('#e1_inp4').val(EMPTY_STRING);
+//    $('#e1_output').text(EMPTY_STRING);
+//}
 
 /********** BEGIN exercise-02 code **********/
 //function e2_onSubmit() {
