@@ -193,7 +193,6 @@
     <Content Include="JavascriptExercises\exercise3.png" />
     <Content Include="JavascriptExercises\exercise4.png" />
     <Content Include="JavascriptExercises\exercises.css" />
-    <Content Include="JavascriptExercises\exercises.js" />
     <Content Include="JavascriptExercises\prism\prism.css" />
     <Content Include="JavascriptExercises\prism\prism.js" />
     <Content Include="Scripts\bootstrap.js" />

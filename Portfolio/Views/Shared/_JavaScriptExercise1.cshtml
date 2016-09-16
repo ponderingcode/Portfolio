@@ -9,11 +9,6 @@
 
         var operationType;
 
-        var e1_val0 = NaN;
-        var e1_val1 = NaN;
-        var e1_val2 = NaN;
-        var e1_val3 = NaN;
-        var e1_val4 = NaN;
         var e1_arrValues = [];
 
         var least;
@@ -21,6 +16,18 @@
         var mean;
         var sum;
         var product;
+
+        function e1_onChanged() {
+            var nonEmptyFieldCount = 0;
+
+            if (0 < $('#e1_inp0').val().length) { nonEmptyFieldCount++; }
+            if (0 < $('#e1_inp1').val().length) { nonEmptyFieldCount++; }
+            if (0 < $('#e1_inp2').val().length) { nonEmptyFieldCount++; }
+            if (0 < $('#e1_inp3').val().length) { nonEmptyFieldCount++; }
+            if (0 < $('#e1_inp4').val().length) { nonEmptyFieldCount++; }
+            
+            e1_btnSubmit.disabled = 2 > nonEmptyFieldCount;
+        }
 
         function e1_onSubmit() {
             event.preventDefault();
@@ -44,23 +51,15 @@
             }
         }
 
-        function didUserProvideValues() {
-            return (null != e1_val0 && EMPTY_STRING != e1_val0 &&
-                    null != e1_val1 && EMPTY_STRING != e1_val1 &&
-                    null != e1_val2 && EMPTY_STRING != e1_val2 &&
-                    null != e1_val3 && EMPTY_STRING != e1_val3 &&
-                    null != e1_val4 && EMPTY_STRING != e1_val4);
-        }
-
         function didUserRunProgram() {
-            var e1_outputMessage = $('#e1_output').text();
-            return EMPTY_STRING != e1_outputMessage;
+            return EMPTY_STRING != $('#e1_output').text();
         }
 
         /* generate a new result for different type of operation
-           only if the user has entered value and a result exists */
+           only if the user has previouly run the program */
         function onSelectChanged() {
-            if (didUserProvideValues() && didUserRunProgram()) {
+            grabEntries();
+            if (didUserRunProgram()) {
                 mathSwitch();
             }
         }
@@ -141,6 +140,7 @@
             $('#e1_inp3').val(EMPTY_STRING);
             $('#e1_inp4').val(EMPTY_STRING);
             $('#e1_output').text(EMPTY_STRING);
+            e1_btnSubmit.disabled = true;
         }
     </script>
     <div class="modal-dialog">
@@ -166,28 +166,28 @@
                 <div class="row">
                     <div class="col-md-12 col-centered">
                         <p>
-                            <input id="e1_inp0" name="e1_inp0" type="number" placeholder="number 1 of 5" class="form-control input-md" required="">
+                            <input id="e1_inp0" name="e1_inp0" type="number" pattern="\d*" placeholder="number 1 of 5" class="form-control input-md" onkeyup="e1_onChanged()">
                         </p>
                         <p>
-                            <input id="e1_inp1" name="e1_inp1" type="number" placeholder="number 2 of 5" class="form-control input-md" required="">
+                            <input id="e1_inp1" name="e1_inp1" type="number" pattern="\d*" placeholder="number 2 of 5" class="form-control input-md" onkeyup="e1_onChanged()">
                         </p>
                         <p>
-                            <input id="e1_inp2" name="e1_inp2" type="number" placeholder="number 3 of 5" class="form-control input-md" required="">
+                            <input id="e1_inp2" name="e1_inp2" type="number" pattern="\d*" placeholder="number 3 of 5" class="form-control input-md" onkeyup="e1_onChanged()">
                         </p>
                         <p>
-                            <input id="e1_inp3" name="e1_inp3" type="number" placeholder="number 4 of 5" class="form-control input-md" required="">
+                            <input id="e1_inp3" name="e1_inp3" type="number" pattern="\d*" placeholder="number 4 of 5" class="form-control input-md" onkeyup="e1_onChanged()">
                         </p>
                         <p>
-                            <input id="e1_inp4" name="e1_inp4" type="number" placeholder="number 5 of 5" class="form-control input-md" required="">
+                            <input id="e1_inp4" name="e1_inp4" type="number" pattern="\d*" placeholder="number 5 of 5" class="form-control input-md" onkeyup="e1_onChanged()">
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <button id="e1_btnSubmit" name="e1_btnSubmit" class="btn btn-primary" onclick="e1_onSubmit()">Submit</button>
+                        <button id="e1_btnSubmit" name="e1_btnSubmit" class="btn btn-primary" onclick="e1_onSubmit()" disabled>Submit</button>
                         <button id="e1_btnReset" name="e1_btnReset" class="btn btn-danger" onclick="e1_onReset()">Reset</button>
                     </div>
-                    <div class="col-md-6" style="height:33px; padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:0px;">
+                    <div class="col-md-3" style="height:33px; padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:0px;">
                         <h5 id="e1_output" style="display:inline-block;"></h5>
                     </div>
                 </div>
@@ -203,11 +203,6 @@ const EMPTY_STRING = '';
 
 var operationType;
 
-var e1_val0 = EMPTY_STRING;
-var e1_val1 = EMPTY_STRING;
-var e1_val2 = EMPTY_STRING;
-var e1_val3 = EMPTY_STRING;
-var e1_val4 = EMPTY_STRING;
 var e1_arrValues = [];
 
 var least;
@@ -216,38 +211,47 @@ var mean;
 var sum;
 var product;
 
+function e1_onChanged() {
+    var nonEmptyFieldCount = 0;
+    if (0 < $('#e1_inp0').val().length) { nonEmptyFieldCount++; }
+    if (0 < $('#e1_inp1').val().length) { nonEmptyFieldCount++; }
+    if (0 < $('#e1_inp2').val().length) { nonEmptyFieldCount++; }
+    if (0 < $('#e1_inp3').val().length) { nonEmptyFieldCount++; }
+    if (0 < $('#e1_inp4').val().length) { nonEmptyFieldCount++; }
+            
+    e1_btnSubmit.disabled = 2 > nonEmptyFieldCount;
+}
+
 function e1_onSubmit() {
     event.preventDefault();
     grabEntries();
-    e1_arrValues = [e1_val0, e1_val1, e1_val2, e1_val3, e1_val4];
     mathSwitch();
 }
 
 function grabEntries() {
-    e1_val0 = parseInt($('#e1_inp0').val());
-    e1_val1 = parseInt($('#e1_inp1').val());
-    e1_val2 = parseInt($('#e1_inp2').val());
-    e1_val3 = parseInt($('#e1_inp3').val());
-    e1_val4 = parseInt($('#e1_inp4').val());
-}
-
-function didUserProvideValues() {
-    return (null != e1_val0 && EMPTY_STRING != e1_val0 && 
-            null != e1_val1 && EMPTY_STRING != e1_val1 &&
-            null != e1_val2 && EMPTY_STRING != e1_val2 &&
-            null != e1_val3 && EMPTY_STRING != e1_val3 &&
-            null != e1_val4 && EMPTY_STRING != e1_val4);
+    e1_arrValues = [];
+    var temp = [];
+    temp.push(parseInt($('#e1_inp0').val()));
+    temp.push(parseInt($('#e1_inp1').val()));
+    temp.push(parseInt($('#e1_inp2').val()));
+    temp.push(parseInt($('#e1_inp3').val()));
+    temp.push(parseInt($('#e1_inp4').val()));
+    for (var i = 0; i < temp.length; i++) {
+        if (!isNaN(temp[i])) {
+            e1_arrValues.push(temp[i]);
+        }
+    }
 }
 
 function didUserRunProgram() {
-    var e1_outputMessage = $('#e1_output').text();
-    return EMPTY_STRING != e1_outputMessage;
+    return EMPTY_STRING != $('#e1_output').text();
 }
 
 /* generate a new result for different type of operation
-   only if the user has entered value and a result exists */
+    only if the user has previouly run the program */
 function onSelectChanged() {
-    if (didUserProvideValues() && didUserRunProgram()) {
+    grabEntries();
+    if (didUserRunProgram()) {
         mathSwitch();
     }
 }
@@ -262,7 +266,7 @@ function sortNumericDescending(a, b) {
 
 function mathSwitch() {
     operationType = $('#selectOperation').val();
-    switch(operationType) {
+    switch (operationType) {
         case OPERATION_TYPE_LEAST:
             determineLeast();
             break;
@@ -295,7 +299,7 @@ function determineGreatest() {
 
 function determineMean() {
     mean = 0;
-    for (var i=0; i < e1_arrValues.length; i++) {
+    for (var i = 0; i < e1_arrValues.length; i++) {
         mean += e1_arrValues[i];
     }
     mean /= e1_arrValues.length;
@@ -304,7 +308,7 @@ function determineMean() {
 
 function determineSum() {
     sum = 0;
-    for (var i=0; i < e1_arrValues.length; i++) {
+    for (var i = 0; i < e1_arrValues.length; i++) {
         sum += e1_arrValues[i];
     }
     $('#e1_output').text('Sum: ' + sum);
@@ -312,19 +316,23 @@ function determineSum() {
 
 function determineProduct() {
     product = 1;
-    for (var i=0; i < e1_arrValues.length; i++) {
+    for (var i = 0; i < e1_arrValues.length; i++) {
         product *= e1_arrValues[i];
     }
     $('#e1_output').text('Product: ' + product);
 }
 
 function e1_onReset() {
+    $('#selectOperation option').prop('selected', function () {
+        return this.defaultSelected;
+    });
     $('#e1_inp0').val(EMPTY_STRING);
     $('#e1_inp1').val(EMPTY_STRING);
     $('#e1_inp2').val(EMPTY_STRING);
     $('#e1_inp3').val(EMPTY_STRING);
     $('#e1_inp4').val(EMPTY_STRING);
     $('#e1_output').text(EMPTY_STRING);
+    e1_btnSubmit.disabled = true;
 }
 </code>
 </pre>
