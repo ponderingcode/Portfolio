@@ -243,6 +243,8 @@
     <Content Include="Theme\Highland_v2.0.0\assets\img\person_2.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\person_3.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\person_4.jpg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\powershell.jpeg" />
+    <Content Include="Theme\Highland_v2.0.0\assets\img\powershell300x169.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\sos.png" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\stock_photos\home_1.jpg" />
     <Content Include="Theme\Highland_v2.0.0\assets\img\stock_photos\home_2.jpg" />
@@ -493,6 +495,7 @@
     <Content Include="Views\Shared\_JavaScriptExercise2.cshtml" />
     <Content Include="Views\Shared\_JavaScriptExercise3.cshtml" />
     <Content Include="Views\Shared\_JavaScriptExercise4.cshtml" />
+    <Content Include="Views\Home\AboutScaffolded.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
