@@ -1,8 +1,13 @@
-﻿@model IEnumerable<Portfolio.Models.CodeFirst.BlogPost>
+﻿@model PagedList.IPagedList<Portfolio.Models.CodeFirst.BlogPost>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @using (Html.BeginForm(ActionName.INDEX, ControllerName.BLOG_POSTS, FormMethod.Post, new { enctype = EncodingType.MULTIPART_FORM_DATA }))
 {
     @Html.AntiForgeryToken()
     <div class="container" style="padding-top: 55px;">
+        <div class="row">
+            @Html.PagedListPager(Model, page => Url.Action(ActionName.INDEX, new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </div>
         <div class="row">
             <div class="col-md-12">
                 @foreach (var item in Model)
@@ -38,7 +43,7 @@
                                 @item.Slug
                             </p>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero perspiciatis quo nulla minus est distinctio facere rerum odit pariatur quisquam ab explicabo, soluta, beatae aperiam voluptate. Labore eaque repellat deserunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim dolorem assumenda odio distinctio facilis earum, eos suscipit consequuntur esse itaque. Ad facere reiciendis accusamus cum quis beatae repellat delectus optio? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates molestiae enim recusandae praesentium est, reprehenderit odit blanditiis, ad quo deleniti reiciendis velit itaque ipsum rem temporibus ullam voluptate iure veritatis.
+                                @item.Body
                             </p>
                         </div> <!-- / .blog__body -->
                         <div class="blog__footer" style="height: 60px;">

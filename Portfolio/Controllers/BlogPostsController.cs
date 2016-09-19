@@ -18,16 +18,19 @@ namespace Portfolio.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BlogPosts
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            int pageSize = 2;
+            int pageNumber = (page ?? 1);
             var listPosts = db.Posts.AsQueryable();
-            //return View(db.Posts.ToList());
-            return View(listPosts.OrderByDescending(p => p.Created));
+            return View(listPosts.OrderByDescending(p => p.Created).ToPagedList(pageNumber, pageSize));
         }
 
         [HttpPost]
-        public ActionResult Index([Bind(Include = "Query")] BlogPost blogPost)
+        public ActionResult Index([Bind(Include = "Query")] BlogPost blogPost, int? page)
         {
+            int pageSize = 2;
+            int pageNumber = (page ?? 1);
             var result = db.Posts.Where(p => p.Body.Contains(blogPost.Query))
                 .Union(db.Posts.Where(p => p.Title.Contains(blogPost.Query)))
                 .Union(db.Posts.Where(p => p.Comments.Any(c => c.Body.Contains(blogPost.Query) ||
@@ -38,7 +41,7 @@ namespace Portfolio.Controllers
                                                                c.Author.Email.Contains(blogPost.Query) ||
                                                                c.UpdateReason.Contains(blogPost.Query))));
 
-            return View(result.OrderByDescending(p => p.Created));
+            return View(result.OrderByDescending(p => p.Created).ToPagedList(pageNumber, pageSize));
         }
 
         // GET: BlogPosts/Details/5
