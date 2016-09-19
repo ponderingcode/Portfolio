@@ -49,12 +49,9 @@
 
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="@Url.Action(ActionName.INDEX, ControllerName.HOME)">Home</a></li>
-                    @*<li><a href="@Url.Action(ActionName.ABOUT, ControllerName.HOME)">About</a></li>
-                    <li><a href="@Url.Action(ActionName.INDEX, ControllerName.BLOG_POSTS)">Blog</a></li>
-                    <li><a href="@Url.Action(ActionName.CONTACT, ControllerName.HOME)">Contact</a></li>*@
                     <li><a href="@Url.Action(ActionName.ABOUT, ControllerName.HOME)">About</a></li>
-                    <li><a href="javascript:void(0);" style="pointer-events:none; color:gray">Blog</a></li>
-                    <li><a href="javascript:void(0);" style="pointer-events:none; color:gray">Contact</a></li>
+                    <li><a href="@Url.Action(ActionName.INDEX, ControllerName.BLOG_POSTS)">Blog</a></li>
+                    <li><a href="@Url.Action(ActionName.CONTACT, ControllerName.HOME)">Contact</a></li>
                 </ul>
                 @Html.Partial(PartialViewName.LOGIN_PARTIAL)
                 <form class="navbar-form navbar-search navbar-right">

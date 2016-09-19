@@ -1,17 +1,60 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@model Portfolio.Models.ContactViewModel
+<div class="container" style="padding-top: 55px;">
+    <div class="row">
+        <div class="col-sm-9">
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+            <h1 class="block-header alt">
+                <span>Get in touch with me</span>
+            </h1>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+            <!-- Alert message -->
+            <div class="alert" id="form_message" role="alert"></div>
+
+            @using (Html.BeginForm(ActionName.CONTACT, ControllerName.HOME, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="sr-only" for="email">Email address</label>
+                            <p>
+                                <input type="email" name="Email" class="input-lg form-control" id="email" placeholder="E-mail" data-original-title="" title="">
+                            </p>
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="sr-only" for="name">Name</label>
+                            <p>
+                                <input type="text" name="FullName" class="input-lg form-control" id="name" placeholder="Full Name" data-original-title="" title="">
+                            </p>
+                            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="message">Message</label>
+                    <p>
+                        <textarea name="Message" class="input-lg form-control" rows="5" id="message" placeholder="Message"></textarea>
+                    </p>
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                    <span class="help-block"></span>
+                </div>
+
+                <button type="submit" class="btn btn-lg btn-primary">Send Message</button>
+            }
+
+        </div>
+        <div class="col-sm-3">
+            <h1 class="block-header alt">
+                <span>Contact info</span>
+            </h1>
+            <p class="text-muted">
+                E-mail: <a href="mailto:contact@ryanfleming.io">contact@ryanfleming.io</a>
+            </p>
+        </div>
+    </div> <!-- / .row -->
+</div> <!-- / .container -->

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Portfolio.Models;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,8 +25,18 @@ namespace Portfolio.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Contact([Bind(Include = "FullName, Email, Message")] ContactViewModel contactModel)
+        {
+            if (ModelState.IsValid)
+            {
+                EmailService emailService = new EmailService();
+                emailService.SendAsync(contactModel);
+            }
             return View();
         }
     }

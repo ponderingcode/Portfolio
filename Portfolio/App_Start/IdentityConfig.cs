@@ -11,14 +11,53 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Portfolio.Models;
+using System.Configuration;
+using SendGrid;
+using System.Net.Mail;
 
 namespace Portfolio
 {
     public class EmailService : IIdentityMessageService
     {
+        private string apiKey = ConfigurationManager.AppSettings["SendGridAPIKey"];
+        private string contactEmail = ConfigurationManager.AppSettings["ContactEmail"];
+
+        /// <summary>
+        /// Outbound email
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
+            SendGridMessage sendGridMessage = new SendGridMessage();
+            sendGridMessage.AddTo(message.Destination);
+            sendGridMessage.From = new MailAddress(contactEmail);
+            sendGridMessage.Subject = message.Subject;
+            sendGridMessage.Html = message.Body;
+
+            var transportWeb = new Web(apiKey);
+            transportWeb.DeliverAsync(sendGridMessage);
+
+            return Task.FromResult(0);
+        }
+
+        /// <summary>
+        /// Email to site owner/administrator via contact form
+        /// </summary>
+        /// <param name="contactModel"></param>
+        /// <returns></returns>
+        public Task SendAsync(ContactViewModel contactModel)
+        {
+            SendGridMessage sendGridMessage = new SendGridMessage();
+            sendGridMessage.AddTo(contactEmail);
+            sendGridMessage.From = new MailAddress(contactModel.Email);
+            sendGridMessage.Subject = "PORTFOLIO: Message from " + contactModel.FullName;
+            sendGridMessage.Html = contactModel.Message;
+
+            Web transportWeb = new Web(apiKey);
+            transportWeb.DeliverAsync(sendGridMessage);
+
             return Task.FromResult(0);
         }
     }
