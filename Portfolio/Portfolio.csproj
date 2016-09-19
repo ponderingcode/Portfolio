@@ -186,17 +186,24 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogPostsController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CodeFirst\BlogPost.cs" />
+    <Compile Include="Models\CodeFirst\Comment.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\StringUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Temp\PlaceholderPath.cs" />
     <Compile Include="UserActionFilter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +238,14 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Temp\post_placeholder_0.png" />
+    <Content Include="Temp\post_placeholder_1.png" />
+    <Content Include="Temp\post_placeholder_2.png" />
+    <Content Include="Temp\post_placeholder_3.png" />
+    <Content Include="Temp\post_placeholder_4.png" />
+    <Content Include="Temp\post_placeholder_5.png" />
+    <Content Include="Temp\post_placeholder_6.png" />
+    <Content Include="Temp\post_placeholder_7.png" />
     <Content Include="Theme\Highland_v2.0.0\404.html" />
     <Content Include="Theme\Highland_v2.0.0\about-us.html" />
     <Content Include="Theme\Highland_v2.0.0\assets\bootstrap\css\bootstrap-theme.css" />
@@ -515,6 +530,22 @@
     <Content Include="Views\Shared\_JavaScriptExercise4.cshtml" />
     <Content Include="Views\Home\AboutScaffolded.cshtml" />
     <Content Include="Views\Home\ContactScaffolded.cshtml" />
+    <Content Include="Views\Shared\_Comment.cshtml" />
+    <Content Include="Views\Shared\_Comments.cshtml" />
+    <Content Include="Views\Shared\_CommentsIndex.cshtml" />
+    <Content Include="Views\Shared\_CreateComment.cshtml" />
+    <Content Include="Views\BlogPosts\Create.cshtml" />
+    <Content Include="Views\BlogPosts\Delete.cshtml" />
+    <Content Include="Views\BlogPosts\Details.cshtml" />
+    <Content Include="Views\BlogPosts\Details_default.cshtml" />
+    <Content Include="Views\BlogPosts\Edit.cshtml" />
+    <Content Include="Views\BlogPosts\Index.cshtml" />
+    <Content Include="Views\BlogPosts\Index_default.cshtml" />
+    <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Delete.cshtml" />
+    <Content Include="Views\Comments\Details.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
