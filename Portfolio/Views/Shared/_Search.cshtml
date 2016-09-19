@@ -1,0 +1,10 @@
+﻿@using (Html.BeginForm(ActionName.INDEX, ControllerName.BLOG_POSTS, FormMethod.Post, new { enctype = EncodingType.MULTIPART_FORM_DATA, @class = "navbar-form navbar-search navbar-right" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <input id="Query" name="Query" type="text" class="form-control" placeholder="&#xF002; &nbsp; Search">
+    </div>
+    <button type="submit" class="btn btn-default">
+        <i class="fa fa-search"></i> Search
+    </button>
+}

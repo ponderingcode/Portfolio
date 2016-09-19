@@ -54,14 +54,18 @@
                     <li><a href="@Url.Action(ActionName.CONTACT, ControllerName.HOME)">Contact</a></li>
                 </ul>
                 @Html.Partial(PartialViewName.LOGIN_PARTIAL)
-                <form class="navbar-form navbar-search navbar-right">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="&#xF002; &nbsp; Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">
-                        <i class="fa fa-search"></i> Search
-                    </button>
-                </form>
+                @if (ControllerName.BLOG_POSTS == ViewContext.RouteData.Values["controller"].ToString())
+                {
+                    @Html.Partial(PartialViewName.SEARCH)
+                    @*<form class="navbar-form navbar-search navbar-right">
+                        <div class="form-group">
+                            <input name="Query" type="text" class="form-control" placeholder="&#xF002; &nbsp; Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">
+                            <i class="fa fa-search"></i> Search
+                        </button>
+                    </form>*@
+                }
 
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->

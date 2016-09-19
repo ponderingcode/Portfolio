@@ -35,6 +35,7 @@
         public const string JAVASCRIPT_EXERCISE_3 = "_JavaScriptExercise3";
         public const string JAVASCRIPT_EXERCISE_4 = "_JavaScriptExercise4";
         public const string LOGIN_PARTIAL         = "_LoginPartial";
+        public const string SEARCH                = "_Search";
     }
 
     public class FileType

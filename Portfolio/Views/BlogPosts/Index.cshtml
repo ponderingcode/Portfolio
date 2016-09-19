@@ -32,7 +32,7 @@
 
                         <div class="blog__body">
                             <a href="@Url.Action(ActionName.DETAILS, ControllerName.BLOG_POSTS, new { id = item.Id })">
-                                <img src="~/Theme/Highland_v2.0.0/assets/img/work_1.jpg" alt="" class="img-responsive img-article pull-right">
+                                <img src="@item.MediaURL" alt="" class="img-responsive img-article pull-right">
                             </a>
                             <p>
                                 @item.Slug
@@ -50,7 +50,7 @@
                                 </span>
                             }
                         </div>
-                        </div> <!-- / .blog__item -->
+                    </div> <!-- / .blog__item -->
                 }
             </div>
         </div>

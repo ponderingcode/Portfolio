@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Portfolio.Models;
 using Portfolio.Models.CodeFirst;
 using System.IO;
+using PagedList;
 
 namespace Portfolio.Controllers
 {
