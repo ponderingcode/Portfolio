@@ -4,8 +4,8 @@
 @using Portfolio.Models
 
 @using (Html.BeginForm(ActionName.CREATE, ControllerName.COMMENTS, FormMethod.Post, new { enctype = EncodingType.MULTIPART_FORM_DATA }))
-{
-    @Html.AntiForgeryToken()
+            {
+@Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.PostId)
     @Html.HiddenFor(model => model.AuthorId)
@@ -47,5 +47,3 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-
-

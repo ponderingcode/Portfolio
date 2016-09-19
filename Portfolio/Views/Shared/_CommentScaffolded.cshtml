@@ -1,0 +1,62 @@
+﻿@model Portfolio.Models.CodeFirst.Comment
+
+<div>
+    <h4>Comment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Model.Author
+        </dt>
+
+        <dd>
+            @Model.Created
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Post.Query)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post.Query)
+        </dd>*@
+
+        <dt>
+            @Model.Body
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateReason)
+        </dd>
+
+    </dl>
+</div>
+@if (Request.IsAuthenticated)
+{
+    <p>
+        @Html.ActionLink("Edit", "Edit", "Comments", new { id = Model.Id }, null) |
+    </p>
+}

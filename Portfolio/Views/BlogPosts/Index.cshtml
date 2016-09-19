@@ -6,6 +6,10 @@
     @Html.AntiForgeryToken()
     <div class="container" style="padding-top: 55px;">
         <div class="row">
+            @if (Request.IsAuthenticated && User.IsInRole(UserRole.ADMINISTRATOR))
+            {
+                @Html.ActionLink(ActionName.CREATE, ActionName.CREATE)
+            }
             @Html.PagedListPager(Model, page => Url.Action(ActionName.INDEX, new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
         </div>
         <div class="row">
@@ -43,7 +47,7 @@
                                 @item.Slug
                             </p>
                             <p>
-                                @item.Body
+                                @Html.Raw(item.Body)
                             </p>
                         </div> <!-- / .blog__body -->
                         <div class="blog__footer" style="height: 60px;">

@@ -1,62 +1,31 @@
 ﻿@model Portfolio.Models.CodeFirst.Comment
+<div class="comments__item">
 
-<div>
-    <h4>Comment</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
+    @*<div class="comments-item__avatar">
+        <img src="assets/img/person_1.jpg" class="img-responsive" alt="..." />
+    </div>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.Author.DisplayName)
-        </dd>
+    <div class="comments-item__body">
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Post.Query)
-        </dt>
+        <div class="comments-item__info">
+            <div class="comments-item-info__author">@Model.Author.FirstName</div>
+            <div class="comments-item-info__divider">
+                <i class="fa fa-circle"></i>
+            </div>
+            <div class="comment-item-info__timestamp">@Model.Created</div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Post.Query)
-        </dd>*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Body)
-        </dt>
-
-        <dd>
+        <div class="comments-item__content">
             @Html.Raw(Model.Body)
-        </dd>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Created)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Created)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Updated)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Updated)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdateReason)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdateReason)
-        </dd>
-
-    </dl>
-</div>
-@if (Request.IsAuthenticated)
-{
-    <p>
-        @Html.ActionLink("Edit", "Edit", "Comments", new { id = Model.Id }, null) |
-    </p>
-}
+        @if (Request.IsAuthenticated)
+        {
+            <div class="comments-item__actions">
+                <a href="@Url.Action(ActionName.EDIT, ControllerName.COMMENTS, new { id = Model.Id }, null)" class="comment-item-actions__reply">
+                    Edit
+                </a>
+            </div>
+        }
+    </div>
+</div> <!-- / .comments__item -->

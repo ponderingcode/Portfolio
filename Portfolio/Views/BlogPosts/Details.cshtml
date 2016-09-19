@@ -1,55 +1,80 @@
-﻿@model Portfolio.Models.CodeFirst.BlogPost
-@using Portfolio.Models.CodeFirst
-@{
-    ViewBag.Title = ActionName.DETAILS;
-}
-<div class="container">
-    <div class="row blog-item">
-        <div class="col-sm-2 text-center">
-            <i class="fa fa-clock-o"></i>
-            <p class="date"><span>@Model.Created.Day</span> @Model.MonthName</p>
-        </div>
-        <div class="col-sm-10 blog-content">
-            <div class="entry-header">
-                <img class="img-responsive" src="@Model.MediaURL" alt="" />
-                <h2>@Model.Title</h2>
-                <div class="entry-meta">
-                    <span><a href="@Url.Action(ActionName.ASSOCIATED_INDEX, ControllerName.COMMENTS, new { postId = Model.Id })"><i class="fa fa-comment"></i> @Model.Comments.Count Comments</a></span>
-                </div>
-            </div>
-            <div class="entry-post">
-                <p>@Html.Raw(Model.Body)</p>
-            </div>
+﻿@using Portfolio.Models.CodeFirst
+@model BlogPost
+    @{ 
+        string commentDisplayText = Model.Comments.Count.ToString() + (1 == Model.Comments.Count ? " comment" : " comments");
+    }
+<div class="container" style="padding-top: 55px;">
+    <div class="row">
+        <div class="col-md-12">
 
-            <div class="comments-area">
-                @*<h3>Comments</h3>*@
-                <ul class="media-list">
+            <div class="blog__item">
+
+                <div class="blog__header">
+                    <h1 class="blog__title">
+                        <a href="#">
+                            @Model.Title
+                        </a>
+                    </h1>
+                    <ul class="blog__info">
+                        <li>
+                            <i class="fa fa-user"></i> <a href="#">Admin</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-calendar"></i> @Model.Created.Day @Model.MonthName @Model.Created.Year
+                        </li>
+                        <li>
+                            <i class="fa fa-comments-o"></i> @commentDisplayText
+                        </li>
+                    </ul>
+                </div> <!-- / .blog__header -->
+
+                <div class="blog__body">
+                    <img src="@Model.MediaURL" alt="" class="img-responsive img-article pull-right">
+                    @Html.Raw(Model.Body)
+                </div> <!-- / .blog__body -->
+                @if (Request.IsAuthenticated && User.IsInRole(UserRole.ADMINISTRATOR))
+                {
+                    <p>
+                        @Html.ActionLink(ActionName.EDIT, ActionName.EDIT, new { id = Model.Id }) |
+                        @Html.ActionLink(ActionName.DELETE, ActionName.DELETE, new { id = Model.Id }) |
+                        @Html.ActionLink("Back to List", ActionName.INDEX)
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @Html.ActionLink("Back to List", ActionName.INDEX)
+                    </p>
+                }
+            </div> <!-- / .blog__item -->
+            <!-- Comments section -->
+            <div class="comments">
+
+                <div class="comments__heading">@commentDisplayText</div>
+                @if (Request.IsAuthenticated && User.IsInRole(UserRole.ADMINISTRATOR) || User.IsInRole(UserRole.MODERATOR))
+                {
+                    @Html.Partial(PartialViewName.CREATE_COMMENT, new Comment() { PostId = Model.Id })
+                }
+
+                <!-- New comment form -->
+                @*<form name="comments__new">
+
+                    <div class="form-group">
+                        <textarea class="form-control" rows="1" placeholder="Write your comment here"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" disabled="disabled">Send</button>
+
+                </form>*@
+
+                <!-- List of comments -->
+                <div class="comments__list">
                     @foreach (var item in Model.Comments)
                     {
-                        
                         @Html.Partial(PartialViewName.COMMENT, new Comment() { PostId = Model.Id, Author = item.Author, Created = item.Created, Body = item.Body })
                     }
-                </ul>
-            </div>
-            @if (Request.IsAuthenticated && User.IsInRole(UserRole.ADMINISTRATOR) || User.IsInRole(UserRole.MODERATOR))
-            {
-                @Html.Partial(PartialViewName.CREATE_COMMENT, new Comment() { PostId = Model.Id })
-            }
+                </div> <!-- / .comments__list -->
+            </div> <!-- / .comments -->
         </div>
-    </div><!--/.blog-item-->
+    </div>
 </div>
-
-@if (Request.IsAuthenticated && User.IsInRole(UserRole.ADMINISTRATOR))
-{
-    <p>
-        @Html.ActionLink(ActionName.EDIT, ActionName.EDIT, new { id = Model.Id }) |
-        @Html.ActionLink(ActionName.DELETE, ActionName.DELETE, new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", ActionName.INDEX)
-    </p>
-}
-else
-{
-    <p>
-        @Html.ActionLink("Back to List", ActionName.INDEX)
-    </p>
-}

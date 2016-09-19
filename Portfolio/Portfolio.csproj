@@ -541,14 +541,14 @@
     <Content Include="Views\Shared\_JavaScriptExercise4.cshtml" />
     <Content Include="Views\Home\AboutScaffolded.cshtml" />
     <Content Include="Views\Home\ContactScaffolded.cshtml" />
-    <Content Include="Views\Shared\_Comment.cshtml" />
+    <Content Include="Views\Shared\_CommentScaffolded.cshtml" />
     <Content Include="Views\Shared\_Comments.cshtml" />
     <Content Include="Views\Shared\_CommentsIndex.cshtml" />
-    <Content Include="Views\Shared\_CreateComment.cshtml" />
+    <Content Include="Views\Shared\_CreateCommentButex.cshtml" />
     <Content Include="Views\BlogPosts\Create.cshtml" />
     <Content Include="Views\BlogPosts\Delete.cshtml" />
+    <Content Include="Views\BlogPosts\DetailsButex.cshtml" />
     <Content Include="Views\BlogPosts\Details.cshtml" />
-    <Content Include="Views\BlogPosts\Details_default.cshtml" />
     <Content Include="Views\BlogPosts\Edit.cshtml" />
     <Content Include="Views\BlogPosts\IndexButex.cshtml" />
     <Content Include="Views\BlogPosts\Index_default.cshtml" />
@@ -559,6 +559,8 @@
     <Content Include="Views\Comments\Index.cshtml" />
     <Content Include="Views\BlogPosts\Index.cshtml" />
     <Content Include="Views\Shared\_Search.cshtml" />
+    <Content Include="Views\Shared\_Comment.cshtml" />
+    <Content Include="Views\Shared\_CreateComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
