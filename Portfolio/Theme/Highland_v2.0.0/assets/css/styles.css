@@ -8725,5 +8725,11 @@ padding-right: 17px;
 .application-name {
     font-family: 'Unsteady Oversteer';
     font-size: 28px;
-    color: #3299bb;
+    /*color: #3299bb;*/
+    color: #9966cc;
+    letter-spacing: -1px;
+}
+
+.navbar-header a.application-name:hover {
+    color: #9966cc;
 }
