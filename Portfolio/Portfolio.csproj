@@ -539,13 +539,14 @@
     <Content Include="Views\BlogPosts\Details.cshtml" />
     <Content Include="Views\BlogPosts\Details_default.cshtml" />
     <Content Include="Views\BlogPosts\Edit.cshtml" />
-    <Content Include="Views\BlogPosts\Index.cshtml" />
+    <Content Include="Views\BlogPosts\IndexButex.cshtml" />
     <Content Include="Views\BlogPosts\Index_default.cshtml" />
     <Content Include="Views\Comments\Create.cshtml" />
     <Content Include="Views\Comments\Delete.cshtml" />
     <Content Include="Views\Comments\Details.cshtml" />
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
+    <Content Include="Views\BlogPosts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
