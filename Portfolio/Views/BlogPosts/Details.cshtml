@@ -29,7 +29,7 @@
                 </div> <!-- / .blog__header -->
 
                 <div class="blog__body">
-                    <img src="@Model.MediaURL" alt="" class="img-responsive img-article pull-right">
+                    <img src="@Model.MediaURL" alt="" class="img-responsive img-article pull-right" style="height: 100%; width: 100%; object-fit: contain">
                     @Html.Raw(Model.Body)
                 </div> <!-- / .blog__body -->
                 @if (Request.IsAuthenticated && User.IsInRole(UserRole.ADMINISTRATOR))

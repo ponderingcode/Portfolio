@@ -75,7 +75,6 @@ namespace Portfolio.Controllers
         {
             comment.Created = DateTimeOffset.Now;
             //model.PostId = id;
-            comment.Created = DateTimeOffset.Now;
             comment.AuthorId = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {

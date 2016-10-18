@@ -342,6 +342,7 @@
     <Content Include="Theme\Highland_v2.0.0\template.html" />
     <Content Include="Theme\Highland_v2.0.0\ui-elements.html" />
     <Content Include="Uploads\DataHand_overhead_view.jpg" />
+    <Content Include="Uploads\photo-1422481973964-e647afc439e4.jpg" />
     <Content Include="Uploads\Untitled.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
