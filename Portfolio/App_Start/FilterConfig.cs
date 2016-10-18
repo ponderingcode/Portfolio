@@ -7,10 +7,6 @@ namespace Portfolio
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            if (!HttpContext.Current.IsDebuggingEnabled)
-            {
-                filters.Add(new RequireHttpsAttribute());
-            }
             filters.Add(new HandleErrorAttribute());
         }
     }

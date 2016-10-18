@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -47,22 +48,23 @@ namespace Portfolio
 
             // Uncomment the following lines to enable logging in with third party login providers
             //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            //    clientId: ConfigurationManager.AppSettings["MicrosoftClientId"],
+            //    clientSecret: ConfigurationManager.AppSettings["MicrosoftClientSecret"]);
 
             //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            //   consumerKey: "E1sqjB6YBjr2KWFfnRU7pVKYF",
+            //   consumerSecret: "uijLJZcht09jQmrd5XSNN9mMf4XhBUylNWtbMx4R83RYMXFRWW");
 
             //app.UseFacebookAuthentication(
             //   appId: "",
             //   appSecret: "");
 
-            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            {
-                ClientId = "968354701463-1ppbe8ejr4u69ltbj7meapn8rov34dmp.apps.googleusercontent.com",
-                ClientSecret = "0WlKfmSnkwVjw_q0TWunI5oV"
-            });
+            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            //{
+            //    ClientId = ConfigurationManager.AppSettings["GoogleClientId"],
+            //    ClientSecret = ConfigurationManager.AppSettings["GoogleClientSecret"],
+            //    Provider = new GoogleOAuth2AuthenticationProvider()
+            //});
         }
     }
 }
