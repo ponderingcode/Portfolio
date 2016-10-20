@@ -32,7 +32,7 @@
                     <img src="@Model.MediaURL" alt="" class="img-responsive img-article pull-right" style="height: 100%; width: 100%; object-fit: contain">
                     @Html.Raw(Model.Body)
                 </div> <!-- / .blog__body -->
-                @if (Request.IsAuthenticated && User.IsInRole(UserRole.ADMINISTRATOR))
+                @if (Request.IsAuthenticated && (User.IsInRole(UserRole.ADMINISTRATOR) || User.IsInRole(UserRole.MODERATOR)))
                 {
                     <p>
                         @Html.ActionLink(ActionName.EDIT, ActionName.EDIT, new { id = Model.Id }) |
@@ -51,7 +51,7 @@
             <div class="comments">
 
                 <div class="comments__heading">@commentDisplayText</div>
-                @if (Request.IsAuthenticated && User.IsInRole(UserRole.ADMINISTRATOR) || User.IsInRole(UserRole.MODERATOR))
+                @if (Request.IsAuthenticated)
                 {
                     @Html.Partial(PartialViewName.CREATE_COMMENT, new Comment() { PostId = Model.Id })
                 }

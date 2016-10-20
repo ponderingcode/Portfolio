@@ -6,9 +6,8 @@
     </div>*@
 
     <div class="comments-item__body">
-
         <div class="comments-item__info">
-            <div class="comments-item-info__author">@Model.Author.FirstName</div>
+            <div class="comments-item-info__author">@Model.Author.FirstName (@Model.Author.Email)</div>
             <div class="comments-item-info__divider">
                 <i class="fa fa-circle"></i>
             </div>
@@ -19,10 +18,10 @@
             @Html.Raw(Model.Body)
         </div>
 
-        @if (Request.IsAuthenticated)
+        @if (Request.IsAuthenticated && (User.IsInRole(UserRole.ADMINISTRATOR) || User.IsInRole(UserRole.MODERATOR)))
         {
             <div class="comments-item__actions">
-                <a href="@Url.Action(ActionName.EDIT, ControllerName.COMMENTS, new { id = Model.Id }, null)" class="comment-item-actions__reply">
+                <a href="@Url.Action(ActionName.EDIT, ControllerName.COMMENTS, new { id = Model.Id })" class="comment-item-actions__reply">
                     Edit
                 </a>
             </div>

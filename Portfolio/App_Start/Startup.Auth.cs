@@ -55,9 +55,9 @@ namespace Portfolio
             //   consumerKey: "E1sqjB6YBjr2KWFfnRU7pVKYF",
             //   consumerSecret: "uijLJZcht09jQmrd5XSNN9mMf4XhBUylNWtbMx4R83RYMXFRWW");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: ConfigurationManager.AppSettings["FacebookAppId"],
+               appSecret: ConfigurationManager.AppSettings["FacebookAppSecret"]);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

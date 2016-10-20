@@ -55,7 +55,7 @@ namespace Portfolio.Controllers
         }
 
         // GET: Comments/Create
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize]
         public ActionResult Create(int id)
         {
             Comment model = new Comment();
@@ -70,7 +70,6 @@ namespace Portfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator, Moderator")]
         public ActionResult Create([Bind(Include = "Id,PostId,AuthorId,Body,Created,Updated,UpdateReason")] Comment comment)
         {
             comment.Created = DateTimeOffset.Now;
