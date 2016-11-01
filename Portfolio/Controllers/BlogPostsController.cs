@@ -174,10 +174,31 @@ namespace Portfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Created,Updated,Title,Slug,Body,MediaURL,Published")] BlogPost blogPost)
+        public ActionResult Edit([Bind(Include = "Id,Created,Updated,Title,Slug,Body,MediaURL,Published")] BlogPost blogPost, HttpPostedFileBase image)
         {
+            if (null != image && 0 < image.ContentLength)
+            {
+                string ext = Path.GetExtension(image.FileName).ToLower();
+                if (FileType.BMP != ext &&
+                    FileType.GIF != ext &&
+                    FileType.JPG != ext &&
+                    FileType.JPEG != ext &&
+                    FileType.PNG != ext)
+                {
+                    ModelState.AddModelError("image", "Invalid Format.");
+                }
+            }
+
             if (ModelState.IsValid)
             {
+                if (null != image)
+                {
+                    string filePath = "/Uploads/"; // relative server path
+                    string absPath = Server.MapPath("~" + filePath); // path on physical drive on server
+                    blogPost.MediaURL = filePath + image.FileName; // media URL for relative path
+                    image.SaveAs(Path.Combine(absPath, image.FileName));
+                }
+
                 blogPost.Updated = DateTimeOffset.Now;
                 db.Entry(blogPost).State = EntityState.Modified;
                 db.SaveChanges();
