@@ -237,6 +237,7 @@
     <Content Include="Private.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Downloads\ryan_fleming_resume.pdf" />
     <None Include="Properties\PublishProfiles\rfleming-portfolio - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\rfleming-portfolio - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -566,6 +567,7 @@
     <Content Include="Views\Shared\_Search.cshtml" />
     <Content Include="Views\Shared\_Comment.cshtml" />
     <Content Include="Views\Shared\_CreateComment.cshtml" />
+    <Content Include="Views\Home\Resume.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

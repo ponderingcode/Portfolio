@@ -14,6 +14,7 @@
         public const string LOGIN            = "Login";
         public const string LOGOFF           = "LogOff";
         public const string REGISTER         = "Register";
+        public const string RESUME           = "Resume";
     }
 
     public class ControllerName

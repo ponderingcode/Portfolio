@@ -39,5 +39,15 @@ namespace Portfolio.Controllers
             }
             return View();
         }
+
+        public ActionResult Resume()
+        {
+            return View();
+        }
+
+        public FileResult DownloadResume()
+        {
+            return File("~/Downloads/ryan_fleming_resume.pdf", System.Net.Mime.MediaTypeNames.Application.Octet, "ryan_fleming_resume.pdf");
+        }
     }
 }
