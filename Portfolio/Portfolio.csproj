@@ -568,6 +568,7 @@
     <Content Include="Views\Shared\_Comment.cshtml" />
     <Content Include="Views\Shared\_CreateComment.cshtml" />
     <Content Include="Views\Home\Resume.cshtml" />
+    <Content Include="Views\Home\ContactConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

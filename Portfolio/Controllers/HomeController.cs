@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Threading.Tasks;
 
 namespace Portfolio.Controllers
 {
@@ -36,6 +37,7 @@ namespace Portfolio.Controllers
             {
                 EmailService emailService = new EmailService();
                 emailService.SendAsync(contactModel);
+                return View(ActionName.CONTACT_CONFIRMATION, contactModel);
             }
             return View();
         }

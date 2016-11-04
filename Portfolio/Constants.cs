@@ -2,19 +2,20 @@
 {
     public class ActionName
     {
-        public const string ABOUT            = "About";
-        public const string ASSOCIATED_INDEX = "AssociatedIndex";
-        public const string CONTACT          = "Contact";
-        public const string CREATE           = "Create";
-        public const string DELETE           = "Delete";
-        public const string DETAILS          = "Details";
-        public const string DETAILS_VIA_SLUG = "DetailsViaSlug";
-        public const string EDIT             = "Edit";
-        public const string INDEX            = "Index";
-        public const string LOGIN            = "Login";
-        public const string LOGOFF           = "LogOff";
-        public const string REGISTER         = "Register";
-        public const string RESUME           = "Resume";
+        public const string ABOUT                = "About";
+        public const string ASSOCIATED_INDEX     = "AssociatedIndex";
+        public const string CONTACT              = "Contact";
+        public const string CONTACT_CONFIRMATION = "ContactConfirmation";
+        public const string CREATE               = "Create";
+        public const string DELETE               = "Delete";
+        public const string DETAILS              = "Details";
+        public const string DETAILS_VIA_SLUG     = "DetailsViaSlug";
+        public const string EDIT                 = "Edit";
+        public const string INDEX                = "Index";
+        public const string LOGIN                = "Login";
+        public const string LOGOFF               = "LogOff";
+        public const string REGISTER             = "Register";
+        public const string RESUME               = "Resume";
     }
 
     public class ControllerName
